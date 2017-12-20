@@ -1,4 +1,7 @@
 class School < ApplicationRecord
+
+  scope :grants_degrees, -> { where(grants_degrees: true) }
+
   def region_name
     case region
     when 1; 'New England'

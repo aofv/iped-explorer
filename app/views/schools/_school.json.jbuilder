@@ -13,7 +13,7 @@ json.chief_administrator school.chief_administrator
 json.chief_administrator_title school.chief_administrator_title
 json.region_name school.region_name
 json.website school.website
-json.control school.control
+json.control_name school.control_name
 json.sector_name school.sector_name
 json.highest_offering_name school.highest_offering_name
 json.level_name school.level_name

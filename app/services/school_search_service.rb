@@ -1,0 +1,24 @@
+class SchoolSearchService
+
+  def search(params, records_per_page, page_number)
+    records_per_page = 50 if records_per_page < 50
+
+    # only includes degree granting schools for now
+    schools = School.grants_degrees
+
+    if params[:control]
+      schools = schools.where(control: params[:control])
+    end
+
+    if params[:region]
+      schools = schools.where(region: params[:region])
+    end
+
+    if params[:size_category]
+      schools = schools.where()
+    end
+
+    return schools.page(page_number).per(records_per_page)
+  end
+
+end

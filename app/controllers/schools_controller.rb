@@ -4,7 +4,7 @@ class SchoolsController < ApplicationController
   def index
     @records_per_page = 50
     @current_page = 1
-    @schools = School.all.page(@current_page).per(@records_per_page)
+    @schools = SchoolSearchService.new.search(params, @records_per_page, @current_page)
   end
 
 end
