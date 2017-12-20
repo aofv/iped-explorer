@@ -20,9 +20,9 @@ class School < ApplicationRecord
 
   def control_name
     case control
-    when 1; 'public'
-    when 2; 'private non-profit'
-    when 3; 'private for-profit'
+    when 1; 'Public'
+    when 2; 'Private Non-Profit'
+    when 3; 'Private For-Profit'
     end
   end
 
