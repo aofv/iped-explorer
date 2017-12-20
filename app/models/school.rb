@@ -1,5 +1,4 @@
 class School < ApplicationRecord
-
   def region_name
     case region
     when 1; 'New England'

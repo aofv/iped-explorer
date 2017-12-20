@@ -52,13 +52,13 @@ module Import
         school.sector = row[24]
         school.level = row[25]
         school.highest_offering = row[27]
-        school.has_undergraduate_degrees = row[28] == 1
-        school.has_graduate_degrees = row[29] == 1
-        school.grants_degrees = row[31] == 1
-        school.is_hbc = row[32] == 1
-        school.has_medical_degrees = row[34] == 1
-        school.has_hospital = row[33] == 1
-        school.admissions_open_to_public = row[37] == 1
+        school.has_undergraduate_degrees = row[28] == '1'
+        school.has_graduate_degrees = row[29] == '1'
+        school.grants_degrees = row[31] == '1'
+        school.is_hbc = row[32] == '1'
+        school.has_medical_degrees = row[34] == '1'
+        school.has_hospital = row[33] == '1'
+        school.admissions_open_to_public = row[37] == '1'
         school.size_category = row[57]
         school.undergraduate_profile = row[51]
         school.enrollment_profile = row[52]
