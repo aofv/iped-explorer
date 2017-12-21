@@ -33,7 +33,10 @@ const components = {
 
 const methods = {
   selectItem(e) {
-    const item = this.options[e.item - 1]
+    const item = this.options.find( (i) => {
+      return i[0] == e.item
+    })
+    
     if(e.value === true) {
       // the item was selected
       this.selectedItems.push(item)
