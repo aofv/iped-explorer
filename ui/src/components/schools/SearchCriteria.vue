@@ -1,7 +1,13 @@
 <template>
   <div class="box">
-    <div class="columns">
+    <button class="button is-white" @click="showBasic = !showBasic" :class="{'is-active': showBasic}">
+      <span class="icon is-small">
+        <i class="fa fa-info"></i>
+      </span>
+      <span>Basic</span>
+    </button>
 
+    <div class="columns" v-if="this.showBasic">
       <!-- state -->
       <div class="column">
         <multi-select
@@ -101,6 +107,7 @@ export default {
         highestAward: [],
         state: [],
       },
+      showBasic: true,
     }
   },
 

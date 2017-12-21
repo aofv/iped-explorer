@@ -35,6 +35,8 @@ const components = {
 
 const methods = {
   getSchools() {
+    this.loading = true
+
     let url = '/schools?'
     if(this.searchString) {
       url += this.searchString
@@ -44,8 +46,8 @@ const methods = {
     ApiClient.get(url)
       .then(response => {
         this.schools = response.data.data
-        this.loading = false
         this.meta = response.data.meta
+        this.loading = false
       })
   },
 
