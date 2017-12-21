@@ -1,25 +1,32 @@
 <template>
   <div>
-    <school-table :schools="schools" v-if="schools" />
+    <search-criteria @updateSearchString="getSchools" />
+    <school-table :schools="schools" />
   </div>
 </template>
 
 <script>
 import ApiClient from '@/utils/ApiClient'
 import SchoolTable from './Table'
+import SearchCriteria from './SearchCriteria'
 
 const components = {
   SchoolTable,
+  SearchCriteria,
 }
 
 const methods = {
-  getSchools() {
-    ApiClient.get('/schools')
+  getSchools(queryString) {
+    ApiClient.get(`/schools?${queryString || ''}`)
       .then(response => {
-        this.loading = false
         this.schools = response.data.data
+        this.loading = false
       })
-  },
+  }
+}
+
+const computed = {
+
 }
 
 export default {
@@ -29,12 +36,13 @@ export default {
 
   data() {
     return {
-      schools: null,
       loading: true,
+      schools: null,
     }
   },
 
   methods: methods,
   components: components,
+  computed: computed,
 }
 </script>
