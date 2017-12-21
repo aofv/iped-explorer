@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171220152049) do
+ActiveRecord::Schema.define(version: 20171221212229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,36 @@ ActiveRecord::Schema.define(version: 20171220152049) do
     t.integer "enrollment_profile"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sport_expenses", force: :cascade do |t|
+    t.integer "year"
+    t.bigint "school_id"
+    t.integer "student_aid_men"
+    t.integer "student_aid_women"
+    t.integer "student_aid_total"
+    t.integer "recruiting_men"
+    t.integer "recruiting_women"
+    t.integer "recruiting_total"
+    t.integer "total_revenue"
+    t.integer "total_expenses"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["school_id"], name: "index_sport_expenses_on_school_id"
+  end
+
+  create_table "sport_teams", force: :cascade do |t|
+    t.integer "year"
+    t.bigint "school_id"
+    t.string "sport"
+    t.string "affiliation"
+    t.string "division"
+    t.integer "roster_size"
+    t.integer "expenses"
+    t.integer "revenue"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["school_id"], name: "index_sport_teams_on_school_id"
   end
 
 end

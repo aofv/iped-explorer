@@ -18,7 +18,6 @@
             Next Page&gt;
         </button>
      </p>
-
     <school-table :schools="schools" />
   </div>
 </template>
