@@ -87,7 +87,7 @@ const methods = {
       queryVals.push(`state=${this.searchCriteria.state}`)
     }
 
-    this.$emit('updateSearchString', queryVals.join('&'))
+    this.$emit('input', queryVals.join('&'))
   }
 }
 
