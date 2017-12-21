@@ -12,7 +12,14 @@ const schoolSizes = [
   [5, '20,000+'],
 ]
 
+const highestAward = [
+  [3, 'Associate\'s'],
+  [5, 'Bachelor\'s'],
+  [7, 'Master\'s'],
+]
+
 export {
   schoolControl,
   schoolSizes,
+  highestAward,
 }

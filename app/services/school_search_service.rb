@@ -18,6 +18,10 @@ class SchoolSearchService
       schools = schools.where(size_category: params[:size].split(','))
     end
 
+    if params[:highest_award]
+      schools = schools.where(highest_offering: params[:highest_award].split(','))
+    end
+
     return schools.page(page_number).per(records_per_page)
   end
 
