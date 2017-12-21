@@ -2,6 +2,16 @@
   <div class="box">
     <div class="columns">
 
+      <!-- state -->
+      <div class="column">
+        <multi-select
+          label="State"
+          v-model="searchCriteria.state"
+          :options="stateOptions"
+          @input="updateCriteria"
+        />
+      </div>
+
       <!-- control -->
       <div class="column">
         <multi-select
@@ -41,6 +51,7 @@
 import { schoolControl } from '@/utils/Constants'
 import { schoolSizes } from '@/utils/Constants'
 import { highestAward } from '@/utils/Constants'
+import { states } from '@/utils/Constants'
 import DropDown from '@/components/inputs/DropDown'
 import MultiSelect from '@/components/inputs/multiselect/MultiSelect'
 
@@ -53,6 +64,7 @@ const computed = {
   controlOptions() { return schoolControl },
   sizeOptions() { return schoolSizes },
   highestAwardOptions() { return highestAward },
+  stateOptions() { return states },
 }
 
 const methods = {
@@ -71,6 +83,10 @@ const methods = {
       queryVals.push(`highest_award=${this.searchCriteria.highestAward}`)
     }
 
+    if(this.searchCriteria.state.length > 0) {
+      queryVals.push(`state=${this.searchCriteria.state}`)
+    }
+
     this.$emit('updateSearchString', queryVals.join('&'))
   }
 }
@@ -83,6 +99,7 @@ export default {
         control: [],
         size: [],
         highestAward: [],
+        state: [],
       },
     }
   },

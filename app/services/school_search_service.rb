@@ -22,6 +22,10 @@ class SchoolSearchService
       schools = schools.where(highest_offering: params[:highest_award].split(','))
     end
 
+    if params[:state]
+      schools = schools.where(state: params[:state].split(','))
+    end
+
     return schools.page(page_number).per(records_per_page)
   end
 
