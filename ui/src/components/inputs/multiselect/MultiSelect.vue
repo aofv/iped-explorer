@@ -36,7 +36,7 @@ const methods = {
     const item = this.options.find( (i) => {
       return i[0] == e.item
     })
-    
+
     if(e.value === true) {
       // the item was selected
       this.selectedItems.push(item)
@@ -84,6 +84,11 @@ export default {
     right: 0;
     bottom: 0;
     left: 0;
+  }
+
+  .dropdown-content {
+    max-height: 400px;
+    overflow-y: scroll;
   }
 }
 </style>
