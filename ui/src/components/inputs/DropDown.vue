@@ -1,12 +1,15 @@
 <template>
-  <div class="select">
-    <select @change="onChange" ref="select">
-      <option v-if="includeBlank"></option>
-      <option
-        v-for="option in options" :value="option[0]">
-        {{ option[1] }}
-      </option>
-    </select>
+  <div>
+    <label v-if="label">{{ label }}</label>
+    <div class="select is-small">
+      <select @change="onChange" ref="select">
+        <option v-if="includeBlank"></option>
+        <option
+          v-for="option in options" :value="option[0]">
+          {{ option[1] }}
+        </option>
+      </select>
+    </div>
   </div>
 </template>
 
@@ -23,8 +26,15 @@ export default {
     value: {},
     options: {},
     includeBlank: { default: false },
+    label: { default: null },
   },
 
   methods: methods,
 }
 </script>
+
+<style scoped lang="scss">
+  label {
+    display: block;
+  }
+</style>

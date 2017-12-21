@@ -1,6 +1,7 @@
 <template>
   <div>
     <drop-down
+      label="Control"
       v-model="searchCriteria.control"
       :options="controlOptions"
       ref="control"
