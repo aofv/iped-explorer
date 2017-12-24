@@ -50,6 +50,21 @@
       </div>
 
     </div>
+
+    <!-- Sports -->
+    <div class="columns">
+
+      <!-- Sport -->
+      <div class="column">
+        <multi-select
+          v-model="searchCriteria.sports"
+          :options="sportOptions"
+          label="Sports"
+          @input="updateCriteria"
+        />
+      </div>
+
+    </div>
   </div>
 </template>
 
@@ -58,6 +73,7 @@ import { schoolControl } from '@/utils/Constants'
 import { schoolSizes } from '@/utils/Constants'
 import { highestAward } from '@/utils/Constants'
 import { states } from '@/utils/Constants'
+import { sports } from '@/utils/Constants'
 import DropDown from '@/components/inputs/DropDown'
 import MultiSelect from '@/components/inputs/multiselect/MultiSelect'
 
@@ -71,6 +87,7 @@ const computed = {
   sizeOptions() { return schoolSizes },
   highestAwardOptions() { return highestAward },
   stateOptions() { return states },
+  sportOptions() { return sports },
 }
 
 const methods = {
@@ -93,6 +110,10 @@ const methods = {
       queryVals.push(`state=${this.searchCriteria.state}`)
     }
 
+    if(this.searchCriteria.sports.length > 0) {
+      queryVals.push(`sport=${this.searchCriteria.sports}`)
+    }
+
     this.$emit('input', queryVals.join('&'))
   }
 }
@@ -106,6 +127,7 @@ export default {
         size: [],
         highestAward: [],
         state: [],
+        sports: [],
       },
       showBasic: true,
     }
