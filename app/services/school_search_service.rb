@@ -42,6 +42,14 @@ class SchoolSearchService
       schools = schools.where(id: school_ids)
     end
 
+    if params[:division]
+      school_ids = SportTeam.most_recent
+        .select(:school_id).distinct
+        .where(division: params[:division].split(','))
+
+      schools = schools.where(id: school_ids)
+    end
+
     return schools.page(page_number).per(records_per_page)
   end
 

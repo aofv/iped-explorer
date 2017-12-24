@@ -90,6 +90,16 @@
         />
       </div>
 
+      <!-- Division -->
+      <div class="column">
+        <multi-select
+          v-model="searchCriteria.division"
+          :options="divisionOptions"
+          label="Division"
+          @input="updateCriteria"
+        />
+      </div>
+
     </div>
   </div>
 </template>
@@ -101,6 +111,7 @@ import { highestAward } from '@/utils/Constants'
 import { states } from '@/utils/Constants'
 import { sports } from '@/utils/Constants'
 import { affiliations } from '@/utils/Constants'
+import { divisions } from '@/utils/Constants'
 import DropDown from '@/components/inputs/DropDown'
 import MultiSelect from '@/components/inputs/multiselect/MultiSelect'
 
@@ -116,6 +127,7 @@ const computed = {
   stateOptions() { return states },
   sportOptions() { return sports },
   affiliationOptions() { return affiliations },
+  divisionOptions() { return divisions },
 }
 
 const methods = {
@@ -146,6 +158,10 @@ const methods = {
       queryVals.push(`affiliation=${this.searchCriteria.affiliation}`)
     }
 
+    if(this.searchCriteria.division.length > 0) {
+      queryVals.push(`division=${this.searchCriteria.division}`)
+    }
+
     this.$emit('input', queryVals.join('&'))
   }
 }
@@ -161,6 +177,7 @@ export default {
         state: [],
         sports: [],
         affiliation: [],
+        division: [],
       },
       showBasic: false,
       showSport: false,

@@ -73,6 +73,12 @@ const affiliations = [
   ['Other', 'Other'],
 ]
 
+const divisions = [
+  ['Division I', 'Division I'],
+  ['Division II', 'Division II'],
+  ['Division III', 'Division III'],
+]
+
 export {
   schoolControl,
   schoolSizes,
@@ -80,4 +86,5 @@ export {
   states,
   sports,
   affiliations,
+  divisions,
 }
