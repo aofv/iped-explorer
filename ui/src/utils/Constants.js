@@ -32,9 +32,39 @@ const states = [
   ['VT', 'VT'], ['WA', 'WA'], ['WI', 'WI'], ['WV', 'WV'], ['WY', 'WY'],
 ]
 
+const sports = [
+  ["track and field, outdoor", "Track and Field, Outdoor"],
+  ["field hockey", "Field Hockey"],
+  ["soccer", "Soccer"],
+  ["beach volleyball", "Beach Volleyball"],
+  ["weight lifting", "Weight Lifting"],
+  ["wrestling", "Wrestling"],
+  ["gymnastics", "Gymnastics"],
+  ["rowing", "Rowing"],
+  ["track and field, x-country", "Track and Field, X-Country"],
+  ["softball", "Softball"],
+  ["track and field, indoor", "Track and Field, Indoor"],
+  ["all track combined", "All Track Combined"],
+  ["swimming and diving", "Swimming and Diving"],
+  ["basketball", "Basketball"],
+  ["squash", "Squash"],
+  ["swimming", "Swimming"],
+  ["diving", "Diving"],
+  ["volleyball", "Volleyball"],
+  ["bowling", "Bowling"],
+  ["lacrosse", "Lacrosse"],
+  ["tennis", "Tennis"],
+  ["golf", "Golf"],
+  ["ice hockey", "Ice Hockey"],
+  ["water polo", "Water Polo"],
+  ["baseball", "Baseball"],
+  ["football", "Football"],
+]
+
 export {
   schoolControl,
   schoolSizes,
   highestAward,
   states,
+  sports,
 }
