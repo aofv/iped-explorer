@@ -1,12 +1,28 @@
 <template>
   <div class="box">
-    <button class="button is-white" @click="showBasic = !showBasic" :class="{'is-active': showBasic}">
-      <span class="icon is-small">
-        <i class="fa fa-info"></i>
-      </span>
-      <span>Basic</span>
-    </button>
+    <div class="columns">
+      <!-- show basic button -->
+      <div class="column is-narrow">
+        <button class="button is-white" @click="showBasic = !showBasic" :class="{'is-active': showBasic}">
+          <span class="icon is-small">
+            <i class="fa fa-info"></i>
+          </span>
+          <span>Basic</span>
+        </button>
+      </div>
 
+      <!-- show sport button -->
+      <div class="column is-narrow">
+        <button class="button is-white" @click="showSport = !showSport" :class="{'is-active': showSport}">
+          <span class="icon is-small">
+            <i class="fa fa-futbol-o"></i>
+          </span>
+          <span>Sports</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Basic -->
     <div class="columns" v-if="this.showBasic">
       <!-- state -->
       <div class="column">
@@ -52,7 +68,7 @@
     </div>
 
     <!-- Sports -->
-    <div class="columns">
+    <div class="columns" v-if="showSport">
 
       <!-- Sport -->
       <div class="column">
@@ -60,6 +76,16 @@
           v-model="searchCriteria.sports"
           :options="sportOptions"
           label="Sports"
+          @input="updateCriteria"
+        />
+      </div>
+
+      <!-- Affiliation -->
+      <div class="column">
+        <multi-select
+          v-model="searchCriteria.affiliation"
+          :options="affiliationOptions"
+          label="Affiliation"
           @input="updateCriteria"
         />
       </div>
@@ -74,6 +100,7 @@ import { schoolSizes } from '@/utils/Constants'
 import { highestAward } from '@/utils/Constants'
 import { states } from '@/utils/Constants'
 import { sports } from '@/utils/Constants'
+import { affiliations } from '@/utils/Constants'
 import DropDown from '@/components/inputs/DropDown'
 import MultiSelect from '@/components/inputs/multiselect/MultiSelect'
 
@@ -88,6 +115,7 @@ const computed = {
   highestAwardOptions() { return highestAward },
   stateOptions() { return states },
   sportOptions() { return sports },
+  affiliationOptions() { return affiliations },
 }
 
 const methods = {
@@ -114,6 +142,10 @@ const methods = {
       queryVals.push(`sport=${this.searchCriteria.sports}`)
     }
 
+    if(this.searchCriteria.affiliation.length > 0) {
+      queryVals.push(`affiliation=${this.searchCriteria.affiliation}`)
+    }
+
     this.$emit('input', queryVals.join('&'))
   }
 }
@@ -128,8 +160,10 @@ export default {
         highestAward: [],
         state: [],
         sports: [],
+        affiliation: [],
       },
-      showBasic: true,
+      showBasic: false,
+      showSport: false,
     }
   },
 

@@ -61,10 +61,23 @@ const sports = [
   ["football", "Football"],
 ]
 
+const affiliations = [
+  ['CCCAA', 'CCCAA'],
+  ['NJCAA', 'NJCAA'],
+  ['Independent', 'Independent'],
+  ['NWAC', 'NWAC'],
+  ['NAIA', 'NAIA'],
+  ['NCAA', 'NCAA'],
+  ['USCAA', 'USCAA'],
+  ['NCCAA', 'NCCAA'],
+  ['Other', 'Other'],
+]
+
 export {
   schoolControl,
   schoolSizes,
   highestAward,
   states,
   sports,
+  affiliations,
 }

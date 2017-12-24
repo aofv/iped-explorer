@@ -51,7 +51,7 @@ module Import
         team = SportTeam.new
 
         team.year = year
-        team.affiliation = row[8].split('Division')[0]
+        team.affiliation = row[8].split('Division')[0].strip
 
         team.division = 'Division I' if row[8].index("Division I")
         team.division = 'Division II' if row[8].index("Division II")

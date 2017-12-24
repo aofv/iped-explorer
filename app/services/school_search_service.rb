@@ -30,7 +30,15 @@ class SchoolSearchService
       school_ids = SportTeam.most_recent
         .select(:school_id).distinct
         .where(sport: params[:sport].split(','))
-        
+
+      schools = schools.where(id: school_ids)
+    end
+
+    if params[:affiliation]
+      school_ids = SportTeam.most_recent
+        .select(:school_id).distinct
+        .where(affiliation: params[:affiliation].split(','))
+
       schools = schools.where(id: school_ids)
     end
 
