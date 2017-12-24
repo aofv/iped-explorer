@@ -15,8 +15,14 @@
         </button>
       </div>
       <div class="dropdown-menu">
+
         <div class="dropdown-content">
-          <drop-down-item v-for="option in options" :key="option[0]" :item="option" @changed="selectItem" />
+          <div class="control" v-if="options.length > 7">
+            <input v-model="filterTerm" type="text" class="input" placeholder="Filter"/>
+          </div>
+          <div class="list-options">
+            <drop-down-item v-for="option in filteredItems" :key="option[0]" :item="option" @changed="selectItem" />
+          </div>
         </div>
       </div>
     </div>
@@ -50,6 +56,18 @@ const methods = {
   },
 }
 
+const computed = {
+  filteredItems() {
+    if(this.filterTerm) {
+      var pattern = new RegExp(this.filterTerm)
+      return this.options.filter( (i) => {
+        return pattern.test(i[0])
+      } )
+    }
+    return this.options
+  }
+}
+
 export default {
   props: {
     options: {},
@@ -60,16 +78,30 @@ export default {
     return {
       selectedItems: [],
       isShowingMenu: false,
+      filterTerm: null,
     }
   },
 
   components: components,
   methods: methods,
+  computed: computed,
 }
 </script>
 
 <style scoped lang="scss">
 .ie-multiselect {
+
+  .dropdown-content {
+    position: relative;
+
+    .list-search {
+      position: static;
+      top: 0;
+      right: 0;
+      left: 0;
+    }
+  }
+
   label {
     display: block;
   }
@@ -87,8 +119,13 @@ export default {
   }
 
   .dropdown-content {
-    max-height: 400px;
-    overflow-y: scroll;
+    padding-top: 0;
+
+    .list-options {
+      max-height: 400px;
+      overflow-y: scroll;
+    }
+
   }
 }
 </style>
