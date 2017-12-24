@@ -27,7 +27,7 @@ module Import
           CSV.parse(contents).each do |row|
             unless current_record < 1
               uid = row[0]
-              puts "\033[K Importing #{current_record} of #{total_rows} - #{row[1]} #{row[127]} \r"
+              print "\033[K Importing #{current_record} of #{total_rows} - #{row[1]} #{row[127]} \r"
 
               imported = true
               if School.where(uid: uid).first
