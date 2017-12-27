@@ -1,7 +1,9 @@
 <template>
   <tr>
     <td>
-      {{ school.name }}
+      <router-link :to="{name: 'School', params: {'school_id': school.id}}">
+        {{ school.name }}
+      </router-link>
     </td>
     <td>
       {{ school.control_name }}
