@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :schools, only: [:index]
+  resources :schools, only: [:index, :show]
 end
