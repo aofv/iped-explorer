@@ -6,6 +6,9 @@ class School < ApplicationRecord
 
   scope :grants_degrees, -> { where(grants_degrees: true) }
 
+  validates :uid,
+    uniqueness: true
+
   def region_name
     case region
     when 1; 'New England'
