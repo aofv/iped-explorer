@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171221212229) do
+ActiveRecord::Schema.define(version: 20171228225532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "general_finances", force: :cascade do |t|
+    t.integer "year"
+    t.bigint "school_id"
+    t.float "total_assets"
+    t.float "total_long_term_debt"
+    t.float "total_liabilities"
+    t.float "tuition_revenue"
+    t.float "total_revenue"
+    t.float "donations"
+    t.float "instruction_expenses"
+    t.float "instruction_salaries"
+    t.float "research_expenses"
+    t.float "research_salaries"
+    t.float "academic_support_expenses"
+    t.float "academic_support_salaries"
+    t.float "student_services_expenses"
+    t.float "student_services_salaries"
+    t.float "institutional_support_expenses"
+    t.float "institutional_support_salaries"
+    t.float "aux_expenses"
+    t.float "aux_salaries"
+    t.float "total_discounts"
+    t.float "value_of_endowment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["school_id"], name: "index_general_finances_on_school_id"
+  end
 
   create_table "schools", force: :cascade do |t|
     t.string "uid"

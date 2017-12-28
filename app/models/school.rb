@@ -2,6 +2,7 @@ class School < ApplicationRecord
 
   has_many :sport_teams
   has_many :sport_expenses
+  has_many :general_finances
 
   scope :grants_degrees, -> { where(grants_degrees: true) }
 
