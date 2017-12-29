@@ -6,7 +6,8 @@ namespace :iped do
     # Import::SportsDataImporter.new.import
     # Import::SportExpensesImporter.new.import
     # Import::PublicGeneralFinanceImporter.new.import
-    Import::PrivateGeneralFinanceImporter.new.import
+    # Import::PrivateGeneralFinanceImporter.new.import
+    Import::AdmissionsImporter.new.import
   end
 
 end

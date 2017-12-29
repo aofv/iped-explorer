@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171228225532) do
+ActiveRecord::Schema.define(version: 20171229204750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admissions", force: :cascade do |t|
+    t.integer "year"
+    t.bigint "school_id"
+    t.integer "applications"
+    t.integer "applications_male"
+    t.integer "applications_female"
+    t.integer "admissions"
+    t.integer "admissions_male"
+    t.integer "admissions_female"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["school_id"], name: "index_admissions_on_school_id"
+  end
 
   create_table "general_finances", force: :cascade do |t|
     t.integer "year"
