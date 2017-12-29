@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20171228225532) do
     t.integer "year"
     t.bigint "school_id"
     t.float "total_assets"
+    t.float "total_expenses"
     t.float "total_long_term_debt"
     t.float "total_liabilities"
     t.float "tuition_revenue"

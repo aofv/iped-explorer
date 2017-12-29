@@ -4,6 +4,7 @@ class CreateGeneralFinances < ActiveRecord::Migration[5.1]
       t.integer :year
       t.references :school
       t.float :total_assets
+      t.float :total_expenses
       t.float :total_long_term_debt
       t.float :total_liabilities
       t.float :tuition_revenue
