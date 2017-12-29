@@ -10,6 +10,9 @@
         <router-link tag="li" :to="{name: 'school.finances.tuition'}">
           <a>Tuition Revenue</a>
         </router-link>
+        <router-link tag="li" :to="{name: 'school.finances.discounts'}">
+          <a>Tuition Discounts</a>
+        </router-link>
       </ul>
     </div>
 
