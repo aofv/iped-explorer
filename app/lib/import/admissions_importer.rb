@@ -41,6 +41,7 @@ module Import
           current_record = current_record + 1
         end # END CSV parse loop
 
+        current_year = current_year + 1
       end # END while loop
     end # END import method
 
