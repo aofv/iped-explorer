@@ -5,7 +5,10 @@
     <div class="tabs">
       <ul>
         <router-link tag="li" :to="{name: 'school.finances.revenue'}">
-          <a>Revenue</a>
+          <a>Total Revenue</a>
+        </router-link>
+        <router-link tag="li" :to="{name: 'school.finances.tuition'}">
+          <a>Tuition Revenue</a>
         </router-link>
       </ul>
     </div>

@@ -6,6 +6,7 @@ import School from '@/components/schools/Show'
 
 import Finances from '@/components/schools/finances/Show'
 import SchoolRevenue from '@/components/schools/finances/RevenueChart'
+import TuitionRevenue from '@/components/schools/finances/TuitionRevenueChart'
 
 import GeneralSchoolInformation from '@/components/schools/general/Show'
 
@@ -18,6 +19,7 @@ const routes = [
 
     { path: 'finances', name: 'SchoolFinances', component: Finances, children: [
       { path: 'revenue', name: 'school.finances.revenue', component: SchoolRevenue },
+      { path: 'tuition', name: 'school.finances.tuition', component: TuitionRevenue },
     ] },
 
   ] },
