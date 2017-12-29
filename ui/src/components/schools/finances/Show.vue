@@ -2,17 +2,23 @@
   <div>
     <basic-finances :finances="finances" v-if="finances" />
 
+    <div class="tabs">
+      <ul>
+        <router-link tag="li" :to="{name: 'school.finances.revenue'}">
+          <a>Revenue</a>
+        </router-link>
+      </ul>
+    </div>
+
     <router-view :finances="finances" v-if="finances" />
   </div>
 </template>
 
 <script>
 import ApiClient from '@/utils/ApiClient'
-import DataListing from '@/components/common/DataListing'
 import BasicFinances from './Basic'
 
 const components = {
-  DataListing,
   BasicFinances,
 }
 
