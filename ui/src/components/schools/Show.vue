@@ -3,11 +3,24 @@
     <h1 class="is-size-4" v-if="school">
       {{ school.name }}
     </h1>
+    <div class="columns">
+      <div class="column is-narrow">
+        <side-nav />
+      </div>
+      <div class="column">
+        <router-view :school="school" v-if="school" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import ApiClient from '@/utils/ApiClient'
+import SideNav from './SideNav'
+
+const components = {
+  SideNav,
+}
 
 const methods = {
   getSchool() {
@@ -33,5 +46,12 @@ export default {
   },
 
   methods: methods,
+  components: components,
 }
 </script>
+
+<style scoped lang="scss">
+  h1 {
+    padding-bottom: 30px;
+  }
+</style>
