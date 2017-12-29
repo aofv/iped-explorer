@@ -8,7 +8,11 @@ import Finances from '@/components/schools/finances/Show'
 import SchoolRevenue from '@/components/schools/finances/RevenueChart'
 import TuitionRevenue from '@/components/schools/finances/TuitionRevenueChart'
 import DiscountChart from '@/components/schools/finances/DiscountChart'
+
 import Admissions from '@/components/schools/admissions/Show'
+import ApplicationsChart from '@/components/schools/admissions/ApplicationsChart'
+import AdmissionsChart from '@/components/schools/admissions/AdmissionsChart'
+import AdmissionsPercentChart from '@/components/schools/admissions/AdmissionsPercentChart'
 
 import GeneralSchoolInformation from '@/components/schools/general/Show'
 
@@ -26,7 +30,9 @@ const routes = [
     ] },
 
     { path: 'admissions', name: 'school.admissions', component: Admissions, children: [
-
+      { path: 'applications', name: 'school.admissions.applications', component: ApplicationsChart },
+      { path: 'admissions', name: 'school.admissions.admissions', component: AdmissionsChart },
+      { path: 'admissions-percent', name: 'school.admissions.admissionsPercent', component: AdmissionsPercentChart },
     ] },
 
   ] },

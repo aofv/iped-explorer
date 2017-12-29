@@ -1,6 +1,22 @@
 <template>
   <div>
     <basic-info v-if="admissions" :admissions="admissions" />
+
+    <div class="tabs">
+      <ul>
+        <router-link tag="li" :to="{name: 'school.admissions.applications'}">
+          <a>Applications</a>
+        </router-link>
+        <router-link tag="li" :to="{name: 'school.admissions.admissions'}">
+          <a>Admissions</a>
+        </router-link>
+        <router-link tag="li" :to="{name: 'school.admissions.admissionsPercent'}">
+          <a>Admissions Percent</a>
+        </router-link>
+      </ul>
+    </div>
+
+    <router-view :admissions="admissions" v-if="admissions" />
   </div>
 </template>
 
