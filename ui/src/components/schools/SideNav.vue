@@ -7,6 +7,11 @@
         </router-link>
       </li>
       <li>
+        <router-link :to="{name: 'school.admissions'}">
+          Admissions
+        </router-link>
+      </li>
+      <li>
         <router-link :to="{name: 'SchoolFinances'}">
           Finances
         </router-link>

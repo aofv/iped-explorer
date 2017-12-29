@@ -5,6 +5,9 @@
     </div>
     <div class="column">
       {{ data }}
+      <span class="has-text-grey is-size-7" v-if="aside">
+        {{ aside }}
+      </span>
     </div>
   </div>
 </template>
@@ -14,6 +17,7 @@ export default {
   props: {
     label: {},
     data: {},
+    aside: {},
   }
 }
 </script>

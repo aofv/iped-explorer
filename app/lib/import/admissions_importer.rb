@@ -59,7 +59,7 @@ module Import
         item.admissions_female = row[MAPPINGS[:admissions_female]]
 
         item.admissions = item.admissions_female.to_i + item.admissions_male.to_i
-        item.applications = item.applications_female.to_i + item.admissions_male.to_i
+        item.applications = item.applications_female.to_i + item.applications_male.to_i
 
         return item
       end
