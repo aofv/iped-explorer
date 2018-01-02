@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171229204750) do
+ActiveRecord::Schema.define(version: 20180102193802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,45 @@ ActiveRecord::Schema.define(version: 20171229204750) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["school_id"], name: "index_admissions_on_school_id"
+  end
+
+  create_table "enrollments", force: :cascade do |t|
+    t.bigint "school_id"
+    t.integer "year"
+    t.integer "level_of_student"
+    t.integer "total"
+    t.integer "male"
+    t.integer "female"
+    t.integer "american_indian"
+    t.integer "american_indian_male"
+    t.integer "american_indian_female"
+    t.integer "asian"
+    t.integer "asian_male"
+    t.integer "asian_female"
+    t.integer "african_american"
+    t.integer "african_american_male"
+    t.integer "african_american_female"
+    t.integer "hispanic"
+    t.integer "hispanic_male"
+    t.integer "hispanic_female"
+    t.integer "pacific_islander"
+    t.integer "pacific_islander_male"
+    t.integer "pacific_islander_female"
+    t.integer "white"
+    t.integer "white_male"
+    t.integer "white_female"
+    t.integer "two_races"
+    t.integer "two_races_male"
+    t.integer "two_races_women"
+    t.integer "race_unknown"
+    t.integer "race_unknown_male"
+    t.integer "race_unknown_female"
+    t.integer "non_resident"
+    t.integer "non_resident_male"
+    t.integer "non_resident_female"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["school_id"], name: "index_enrollments_on_school_id"
   end
 
   create_table "general_finances", force: :cascade do |t|
