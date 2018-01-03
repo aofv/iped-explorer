@@ -3,14 +3,14 @@
     <h2 class="title is-4">Admissions</h2>
     <div class="columns" v-if="admissions">
       <div class="column is-one-third">
-        <data-listing label="Admissions" :data="mostRecent.admissions" :aside="admissionsPercent" />
-        <data-listing label="Male Admissions" :data="mostRecent.admissions_male" :aside="admissionsMale" />
-        <data-listing label="Female Admissions" :data="mostRecent.admissions_female" :aside="admissionsFemale" />
+        <data-listing label="Admissions" :data="mostRecent.admissions" :aside="admissionsPercent" type="number" />
+        <data-listing label="Male Admissions" :data="mostRecent.admissions_male" :aside="admissionsMale" type="number" />
+        <data-listing label="Female Admissions" :data="mostRecent.admissions_female" :aside="admissionsFemale" type="number" />
       </div>
       <div class="column is-one-third">
-        <data-listing label="Applications" :data="mostRecent.applications" />
-        <data-listing label="Male Applications" :data="mostRecent.applications_male" />
-        <data-listing label="Female Applications" :data="mostRecent.applications_female" />
+        <data-listing label="Applications" :data="mostRecent.applications" type="number" />
+        <data-listing label="Male Applications" :data="mostRecent.applications_male" type="number" />
+        <data-listing label="Female Applications" :data="mostRecent.applications_female" type="number" />
       </div>
     </div>
 

@@ -4,6 +4,10 @@
       {{ school.name }}
     </h1>
 
+    <div class="chart">
+
+    </div>
+
     <div v-if="school">
       <general-info :school="school" />
       <hr />
@@ -11,7 +15,6 @@
       <hr />
       <admissions-info :school="school" />
     </div>
-
 
   </div>
 </template>
@@ -48,6 +51,7 @@ export default {
     return {
       school: null,
       loading: true,
+      chartSets: [],
     }
   },
 

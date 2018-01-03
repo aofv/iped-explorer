@@ -3,22 +3,21 @@
     <h2 class="title is-4">Finances</h2>
     <div class="columns" v-if="finances">
       <div class="column">
-        <data-listing label="Last Reporting Year" :data="mostRecentRecord.year" />
-        <data-listing label="Total Revenue" :data="formatCurrency(mostRecentRecord.total_revenue)" />
-        <data-listing label="Total Expenses" :data="formatCurrency(mostRecentRecord.total_expenses)" />
-        <data-listing label="Assets" :data="formatCurrency(mostRecentRecord.total_assets)" />
-        <data-listing label="Liabilities" :data="formatCurrency(mostRecentRecord.total_liabilities)" />
+        <data-listing label="Total Revenue" :data="mostRecentRecord.total_revenue" type="currency" />
+        <data-listing label="Total Expenses" :data="mostRecentRecord.total_expenses" type="currency" />
+        <data-listing label="Assets" :data="mostRecentRecord.total_assets" type="currency" />
+        <data-listing label="Liabilities" :data="mostRecentRecord.total_liabilities" type="currency" />
       </div>
 
       <div class="column">
-        <data-listing label="Tuition Revenue" :data="formatCurrency(mostRecentRecord.tuition_revenue)" />
-        <data-listing label="Tuition Discounts" :data="formatCurrency(mostRecentRecord.total_discounts)" />
-        <data-listing label="Discount Rate" :data="discountRate" />
+        <data-listing label="Tuition Revenue" :data="mostRecentRecord.tuition_revenue" type="currency" />
+        <data-listing label="Tuition Discounts" :data="mostRecentRecord.total_discounts" type="currency" />
+        <data-listing label="Discount Rate" :data="discountRate" type="percent" />
       </div>
 
       <div class="column">
-        <data-listing label="Donations" :data="formatCurrency(mostRecentRecord.donations)" />
-        <data-listing label="Endowment" :data="formatCurrency(mostRecentRecord.endowment)" />
+        <data-listing label="Donations" :data="mostRecentRecord.donations" type="currency" />
+        <data-listing label="Endowment" :data="mostRecentRecord.endowment" type="currency" />
       </div>
 
     </div>
@@ -46,7 +45,7 @@ const computed = {
   discountRate() {
     const tuition = this.mostRecentRecord.tuition_revenue
     const discount = this.mostRecentRecord.total_discounts
-    return Math.round((discount / tuition) * 100) + '%'
+    return discount / tuition
   },
 }
 
