@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180102193802) do
+ActiveRecord::Schema.define(version: 20180103172956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -157,6 +157,23 @@ ActiveRecord::Schema.define(version: 20180102193802) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["school_id"], name: "index_sport_teams_on_school_id"
+  end
+
+  create_table "veterans", force: :cascade do |t|
+    t.integer "year"
+    t.bigint "school_id"
+    t.integer "total_undergarduate_students"
+    t.integer "total_undergraduate_benefits"
+    t.integer "average_undergraduate_benefits"
+    t.integer "total_graduate_students"
+    t.integer "total_graduate_benifits"
+    t.integer "average_graduate_benifits"
+    t.integer "total_students"
+    t.integer "total_benefits"
+    t.integer "average_benefits"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["school_id"], name: "index_veterans_on_school_id"
   end
 
 end
