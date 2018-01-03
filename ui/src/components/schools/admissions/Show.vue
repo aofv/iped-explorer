@@ -3,14 +3,53 @@
     <h2 class="title is-4">Admissions</h2>
     <div class="columns" v-if="admissions">
       <div class="column is-one-third">
-        <data-listing label="Admissions" :data="mostRecent.admissions" :aside="admissionsPercent" type="number" />
-        <data-listing label="Male Admissions" :data="mostRecent.admissions_male" :aside="admissionsMale" type="number" />
-        <data-listing label="Female Admissions" :data="mostRecent.admissions_female" :aside="admissionsFemale" type="number" />
+        <data-listing
+          label="Admissions"
+          :data="mostRecent.admissions"
+          :aside="admissionsPercent"
+          type="number"
+          :series="admissions.map( (obj) => { return {year: obj.year, value: obj.admissions} } )"
+          chartable="true"
+        />
+        <data-listing
+          label="Male Admissions"
+          :data="mostRecent.admissions_male"
+          :aside="admissionsMale"
+          type="number"
+          :series="admissions.map( (obj) => { return {year: obj.year, value: obj.admissions_male} } )"
+          chartable="true"
+        />
+        <data-listing
+          label="Female Admissions"
+          :data="mostRecent.admissions_female"
+          :aside="admissionsFemale"
+          type="number"
+          :series="admissions.map( (obj) => { return {year: obj.year, value: obj.admissions_female} })"
+          :chartable="true"
+        />
       </div>
       <div class="column is-one-third">
-        <data-listing label="Applications" :data="mostRecent.applications" type="number" />
-        <data-listing label="Male Applications" :data="mostRecent.applications_male" type="number" />
-        <data-listing label="Female Applications" :data="mostRecent.applications_female" type="number" />
+        <data-listing
+          label="Applications"
+          :data="mostRecent.applications"
+          type="number"
+          :series="admissions.map( (obj) => { return {year: obj.year, value: obj.applications} })"
+          :chartable="true"
+        />
+        <data-listing
+          label="Male Applications"
+          :data="mostRecent.applications_male"
+          :series="admissions.map( (obj) => { return {year: obj.year, value: obj.applications_male} })"
+          type="number"
+          :chartable="true"
+        />
+        <data-listing
+          label="Female Applications"
+          :data="mostRecent.applications_female"
+          :series="admissions.map( (obj) => { return {year: obj.year, value: obj.applications_female} })"
+          type="number"
+          :chartable="true"
+        />
       </div>
     </div>
 

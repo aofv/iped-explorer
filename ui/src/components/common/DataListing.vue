@@ -1,5 +1,5 @@
 <template>
-  <div class="columns">
+  <div class="columns" @click="onClick">
     <div class="column has-text-weight-bold has-text-right">
       {{ label }}
     </div>
@@ -14,23 +14,41 @@
 
 <script>
 import numeral from 'numeral'
+import { mapActions } from 'vuex'
 
 const methods = {
-
+  ...mapActions(['toggleChartField']),
+  onClick() {
+    if(this.chartable) {
+      this.toggleChartField({
+        field: this.label,
+        data: this.series,
+      })
+    }
+  },
 }
 
 const computed = {
   dataDisplay() {
     switch(this.type) {
       case 'text':
-        return this.data;
+        return this.currentDatum;
       case 'currency':
-        return numeral(this.data).format('($0,0.00a)')
+        return numeral(this.currentDatum).format('($0,0.00a)')
       case 'number':
-        return numeral(this.data).format('0,0')
+        return numeral(this.currentDatum).format('0,0')
       case 'percent':
-        return numeral(this.data).format('0,0.0%')
+        return numeral(this.currentDatum).format('0,0.0%')
     }
+  },
+
+  currentDatum() {
+    if(!this.series)
+      return this.data
+
+    return this.series.find((i) => {
+      return i.year == this.$store.state.displayYear }
+    ).value
   },
 }
 
@@ -39,7 +57,9 @@ export default {
     label: {},
     data: {},
     aside: {},
-    type: { default: 'text' }
+    type: { default: 'text' },
+    series: {},
+    chartable: { default: false }
   },
 
   methods: methods,
