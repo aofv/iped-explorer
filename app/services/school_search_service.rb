@@ -6,6 +6,10 @@ class SchoolSearchService
     # only includes degree granting schools for now
     schools = School.grants_degrees
 
+    if params[:name]
+      schools = schools.where("name ILIKE ?", "%#{params[:name]}%")
+    end
+
     if params[:control]
       schools = schools.where(control: params[:control].split(','))
     end

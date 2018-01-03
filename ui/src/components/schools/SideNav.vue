@@ -2,7 +2,7 @@
   <aside class="menu">
     <ul class="menu-list">
       <li>
-        <router-link :to="{name: 'SchoolGeneral'}">
+        <router-link :to="{name: 'school'}">
           General
         </router-link>
       </li>

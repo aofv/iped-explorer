@@ -21,7 +21,7 @@ Vue.use(Router)
 const routes = [
   { path: '/schools', name: 'Schools', component: Schools },
   { path: '/schools/:school_id', component: School, children: [
-    { path: 'general', name: 'SchoolGeneral', component: GeneralSchoolInformation },
+    { path: 'general', name: 'school', component: GeneralSchoolInformation },
 
     { path: 'finances', name: 'SchoolFinances', component: Finances, children: [
       { path: 'revenue', name: 'school.finances.revenue', component: SchoolRevenue },

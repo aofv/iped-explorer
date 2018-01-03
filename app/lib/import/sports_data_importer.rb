@@ -58,7 +58,7 @@ module Import
         team.division = 'Division III' if row[8].index("Division III")
 
         team.school = School.where(uid: row[0]).first
-        team.sport = row[127]
+        team.sport = row[127].downcase
         team.roster_size = row[20].to_i + row[21].to_i
         team.expenses = row[22].to_i + row[24].to_i
         team.revenue = row[115].to_i + row[116].to_i

@@ -7,6 +7,10 @@
           IPEDS Explorer
         </p>
       </div>
+
+      <div class="navbar-item">
+        <school-picker @select="onSelectSchool" />
+      </div>
     </nav>
 
     <div class="container is-fluid">
@@ -16,8 +20,21 @@
 </template>
 
 <script>
-export default {
+import SchoolPicker from '@/components/common/SchoolPicker'
 
+const components = {
+  SchoolPicker,
+}
+
+const methods = {
+  onSelectSchool(school) {
+    this.$router.push({name: 'school', params: { school_id: school.id }})
+  },
+}
+
+export default {
+  components: components,
+  methods: methods,
 }
 </script>
 
