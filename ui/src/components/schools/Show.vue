@@ -3,23 +3,29 @@
     <h1 class="is-size-4" v-if="school">
       {{ school.name }}
     </h1>
-    <div class="columns">
-      <div class="column is-narrow">
-        <side-nav />
-      </div>
-      <div class="column">
-        <router-view :school="school" v-if="school" />
-      </div>
+
+    <div v-if="school">
+      <general-info :school="school" />
+      <hr />
+      <finance-info :school="school" />
+      <hr />
+      <admissions-info :school="school" />
     </div>
+
+
   </div>
 </template>
 
 <script>
 import ApiClient from '@/utils/ApiClient'
-import SideNav from './SideNav'
+import GeneralInfo from './general/Show'
+import FinanceInfo from './finances/Show'
+import AdmissionsInfo from './admissions/Show'
 
 const components = {
-  SideNav,
+  GeneralInfo,
+  FinanceInfo,
+  AdmissionsInfo,
 }
 
 const methods = {
