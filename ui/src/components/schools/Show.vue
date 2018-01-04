@@ -5,7 +5,7 @@
     </h1>
 
     <div class="chart">
-
+      <chart />
     </div>
 
     <div v-if="school">
@@ -24,11 +24,13 @@ import ApiClient from '@/utils/ApiClient'
 import GeneralInfo from './general/Show'
 import FinanceInfo from './finances/Show'
 import AdmissionsInfo from './admissions/Show'
+import Chart from '@/components/common/Chart'
 
 const components = {
   GeneralInfo,
   FinanceInfo,
   AdmissionsInfo,
+  Chart,
 }
 
 const methods = {

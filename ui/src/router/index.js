@@ -8,7 +8,7 @@ Vue.use(Router)
 
 const routes = [
   { path: '/schools', name: 'Schools', component: Schools },
-  { path: '/schools/:school_id', component: School, children:
+  { path: '/schools/:school_id', name: 'school', component: School, children:
     []
   },
 ]
