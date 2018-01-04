@@ -29,7 +29,7 @@ const actions = {
 }
 
 const getters = {
-
+  displayYear: (state) => { return state.displayYear }
 }
 
 export default new Vuex.Store({

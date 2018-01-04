@@ -11,6 +11,8 @@
     <div v-if="school">
       <general-info :school="school" />
       <hr />
+      <enrollment-info :school="school" />
+      <hr />
       <finance-info :school="school" />
       <hr />
       <admissions-info :school="school" />
@@ -24,12 +26,14 @@ import ApiClient from '@/utils/ApiClient'
 import GeneralInfo from './general/Show'
 import FinanceInfo from './finances/Show'
 import AdmissionsInfo from './admissions/Show'
+import EnrollmentInfo from './enrollments/Show'
 import Chart from '@/components/common/Chart'
 
 const components = {
   GeneralInfo,
   FinanceInfo,
   AdmissionsInfo,
+  EnrollmentInfo,
   Chart,
 }
 
