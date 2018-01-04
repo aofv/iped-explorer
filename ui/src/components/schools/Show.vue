@@ -4,9 +4,6 @@
       {{ school.name }}
     </h1>
 
-    <div class="chart">
-      <chart />
-    </div>
 
     <div v-if="school">
       <general-info :school="school" />
@@ -16,6 +13,10 @@
       <finance-info :school="school" />
       <hr />
       <admissions-info :school="school" />
+    </div>
+
+    <div class="chart">
+      <chart />
     </div>
 
   </div>
@@ -67,6 +68,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  .chart {
+    padding-top: 50px;
+    min-height: 565px;
+  }
   h1 {
     padding-bottom: 30px;
   }

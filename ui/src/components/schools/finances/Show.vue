@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2 class="title is-4">Finances</h2>
-    <div class="columns" v-if="finances">
+    <h2 class="title is-4" @click="show = !show">Finances</h2>
+    <div class="columns" v-if="finances" v-show="show">
       <div class="column">
         <data-listing
           label="Total Revenue"
@@ -138,6 +138,7 @@ export default {
     return {
       finances: null,
       loading: true,
+      show: false,
     }
   },
 

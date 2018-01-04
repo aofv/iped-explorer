@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2 class="title is-4">Basic</h2>
-    <div class="columns">
+    <h2 class="title is-4" @click="show = !show">Basic</h2>
+    <div class="columns" v-show="show">
       <div class="column is-one-third">
         <data-listing label="Region" :data="school.region_name" />
         <data-listing label="Address" :data="school.address.street" />
@@ -33,6 +33,12 @@ const components = {
 export default {
   props: {
     school: {},
+  },
+
+  data() {
+    return {
+      show: false,
+    }
   },
 
   components: components,

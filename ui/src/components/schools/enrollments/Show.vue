@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h2 class="title is-4">Enrollments</h2>
-    <div class="columns" v-if="enrollments">
+    <h2 class="title is-4" @click="show = !show">Enrollments</h2>
 
+    <div class="columns" v-if="enrollments" v-show="show">
       <!-- START col 1 -->
       <div class="column is-one-third">
         <data-listing
@@ -94,6 +94,7 @@ export default {
     return {
       loading: true,
       enrollments: null,
+      show: false,
     }
   },
 
