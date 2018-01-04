@@ -1,6 +1,6 @@
 <template>
   <div>
-    <canvas ref="chart" />
+    <canvas ref="chart"  />
   </div>
 </template>
 
@@ -85,6 +85,10 @@ const computed = {
 
   xAxisYears() {
     let allYears = []
+
+    if(!this.dataSets[0]) {
+      return []
+    }
 
     // Build a unique list of years
     for(let set of this.dataSets) {
