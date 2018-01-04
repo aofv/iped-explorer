@@ -3,21 +3,73 @@
     <h2 class="title is-4">Finances</h2>
     <div class="columns" v-if="finances">
       <div class="column">
-        <data-listing label="Total Revenue" :data="mostRecentRecord.total_revenue" type="currency" />
-        <data-listing label="Total Expenses" :data="mostRecentRecord.total_expenses" type="currency" />
-        <data-listing label="Assets" :data="mostRecentRecord.total_assets" type="currency" />
-        <data-listing label="Liabilities" :data="mostRecentRecord.total_liabilities" type="currency" />
+        <data-listing
+          label="Total Revenue"
+          :data="mostRecentRecord.total_revenue"
+          type="currency"
+          :series="finances.map((obj) => {return {year: obj.year, value: obj.total_revenue }})"
+          chartable="true"
+        />
+        <data-listing
+          label="Total Expenses"
+          :data="mostRecentRecord.total_expenses"
+          type="currency"
+          :series="finances.map((obj) => {return {year: obj.year, value: obj.total_expenses }})"
+          chartable="true"
+        />
+        <data-listing
+          label="Assets"
+          :data="mostRecentRecord.total_assets"
+          type="currency"
+          :series="finances.map((obj) => {return {year: obj.year, value: obj.total_assets }})"
+          chartable="true"
+        />
+        <data-listing
+          label="Liabilities"
+          :data="mostRecentRecord.total_liabilities"
+          type="currency"
+          :series="finances.map((obj) => {return {year: obj.year, value: obj.total_liabilities }})"
+          chartable="true"
+        />
       </div>
 
       <div class="column">
-        <data-listing label="Tuition Revenue" :data="mostRecentRecord.tuition_revenue" type="currency" />
-        <data-listing label="Tuition Discounts" :data="mostRecentRecord.total_discounts" type="currency" />
-        <data-listing label="Discount Rate" :data="discountRate" type="percent" />
+        <data-listing
+          label="Tuition Revenue"
+          :data="mostRecentRecord.tuition_revenue"
+          type="currency"
+          :series="finances.map((obj) => {return {year: obj.year, value: obj.tuition_revenue }})"
+          chartable="true"
+        />
+        <data-listing
+          label="Tuition Discounts"
+          :data="mostRecentRecord.total_discounts"
+          type="currency"
+          :series="finances.map((obj) => {return {year: obj.year, value: obj.total_discounts }})"
+          chartable="true"
+        />
+        <data-listing
+          label="Discount Rate"
+          :data="discountRate"
+          type="percent"
+        />
       </div>
 
       <div class="column">
-        <data-listing label="Donations" :data="mostRecentRecord.donations" type="currency" />
-        <data-listing label="Endowment" :data="mostRecentRecord.endowment" type="currency" />
+        <data-listing
+          label="Donations"
+          :data="mostRecentRecord.donations"
+          type="currency"
+          :series="finances.map((obj) => {return {year: obj.year, value: obj.donations }})"
+          chartable="true"
+        />
+        <data-listing
+          label="Endowment"
+          :data="mostRecentRecord.endowment"
+          type="currency"
+          :series="finances.map((obj) => {return {year: obj.year, value: obj.endowment }})"
+          chartable="true"
+        />
       </div>
 
     </div>

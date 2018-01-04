@@ -22,6 +22,10 @@ const methods = {
   drawChart() {
     const ctx = this.$refs.chart.getContext('2d')
 
+    if(this.chart) {
+      this.chart.destroy()
+    }
+
     this.chart = new Chart(ctx, {
       type: this.type,
       data: {
@@ -51,9 +55,22 @@ const computed = {
     let colorIndex = 0;
 
     for(let newSet of this.$store.state.chartFields) {
+
+      // In case there are blanks, push null values onto the series
+      // to properly offset the chart
+      let dataArray = []
+      for(let year of this.xAxisYears) {
+        const itemToAdd = newSet.data.find(i => i.year == year)
+        if(itemToAdd)
+          dataArray.push(itemToAdd.value)
+        else
+          dataArray.push(null)
+      }
+
+
       const obj = {
         label: newSet.field,
-        data: newSet.data.map( (i) => { return i.value } ),
+        data: dataArray,
         borderWidth: 3,
         borderColor: colors[colorIndex],
         yAxisID: newSet.field,
@@ -101,16 +118,14 @@ const computed = {
     // Build an array of all applicable years in the data sets
     const minYear = Math.min(...allYears)
     const maxYear = Math.max(...allYears)
-    return [...Array(maxYear - minYear).keys()].map( (i) => { return i + minYear} )
+
+    return [...Array(maxYear - minYear + 1).keys()].map( (i) => { return i + minYear} )
   },
 }
 
 export default {
   props: {
     type: { default: 'line' },
-    label: {},
-    labels: {},
-    data: {},
   },
 
   mounted() {

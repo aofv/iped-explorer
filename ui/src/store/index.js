@@ -13,9 +13,10 @@ const state = {
 
 const mutations = {
   [TOGGLE_CHART_FIELD] (state, payload) {
-    const index = this.state.chartFields.find(i => i.field == payload.field)
+    const existingItem = this.state.chartFields.find(i => i.field == payload.field)
+    const index = this.state.chartFields.indexOf(existingItem)
 
-    if(!index) {
+    if(index < 0) {
       this.state.chartFields.push(payload)
     } else {
       this.state.chartFields.splice(index, 1)
