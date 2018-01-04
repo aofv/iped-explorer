@@ -2,6 +2,9 @@
   <div class="columns" @click="onClick">
     <div class="column has-text-weight-bold has-text-right">
       {{ label }}
+      <span v-if="chartable" class="chartable">
+        <i class="fas fa-chart-line"></i>
+      </span>
     </div>
     <div class="column">
       {{ dataDisplay }}
@@ -68,6 +71,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  .chartable {
+    cursor: pointer;
+  }
+
   .columns {
     .column {
       padding: 5px 10px 0px 5px;
