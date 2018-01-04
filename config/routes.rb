@@ -3,5 +3,6 @@ Rails.application.routes.draw do
     resources :finances, only: [:index]
     resources :admissions, only: [:index]
     resources :sport_teams, only: [:index]
+    resources :enrollments, only: [:index]
   end
 end

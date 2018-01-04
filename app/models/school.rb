@@ -5,6 +5,7 @@ class School < ApplicationRecord
   has_many :general_finances
   has_many :admissions
   has_many :veterans
+  has_many :enrollments
 
   scope :grants_degrees, -> { where(grants_degrees: true) }
 
