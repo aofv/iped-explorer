@@ -2,7 +2,7 @@
   <div class="columns" @click="onClick">
     <div class="column has-text-weight-bold has-text-right">
       {{ label }}
-      <span v-if="chartable" class="chartable">
+      <span v-if="chartable" class="chartable" :class="{active: onChart}">
         <i class="fas fa-chart-line"></i>
       </span>
     </div>
@@ -23,6 +23,7 @@ const methods = {
   ...mapActions(['toggleChartField']),
   onClick() {
     if(this.chartable) {
+      this.onChart = !this.onChart
       this.toggleChartField({
         field: this.label,
         data: this.series,
@@ -65,6 +66,12 @@ export default {
     chartable: { default: false }
   },
 
+  data() {
+    return {
+      onChart: false,
+    }
+  },
+
   methods: methods,
   computed: computed,
 }
@@ -73,6 +80,10 @@ export default {
 <style scoped lang="scss">
   .chartable {
     cursor: pointer;
+
+    &.active {
+      color: blue;
+    }
   }
 
   .columns {
