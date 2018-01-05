@@ -3,10 +3,9 @@ lock "~> 3.10.1"
 
 set :application, "ipeds-api"
 set :repo_url, "git@github.com:aofv/iped-explorer.git"
+set :rvm_ruby_version, '2.3.1@5.1'
 
 set :branch, 'release'
-
-set :default_env, { rvm_bin_path: '~/.rvm/bin' }
 
 set :keep_releases, 5
 
