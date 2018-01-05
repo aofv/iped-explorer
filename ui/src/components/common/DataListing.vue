@@ -3,7 +3,7 @@
     <div class="column has-text-weight-bold has-text-right">
       {{ label }}
       <span v-if="chartable" class="chartable" :class="{active: onChart}">
-        <i class="fas fa-chart-line"></i>
+        <i class="fa fa-line-chart"></i>
       </span>
     </div>
     <div class="column">

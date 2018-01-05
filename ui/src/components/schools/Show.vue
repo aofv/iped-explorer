@@ -4,10 +4,10 @@
       {{ school.name }}
     </h1>
 
-
     <div v-if="school">
       <general-info :school="school" />
       <enrollment-info :school="school" />
+      <veteran-info :school="school" />
       <finance-info :school="school" />
       <admissions-info :school="school" />
     </div>
@@ -26,6 +26,7 @@ import FinanceInfo from './finances/Show'
 import AdmissionsInfo from './admissions/Show'
 import EnrollmentInfo from './enrollments/Show'
 import Chart from '@/components/common/Chart'
+import VeteranInfo from './veterans/Show'
 
 const components = {
   GeneralInfo,
@@ -33,6 +34,7 @@ const components = {
   AdmissionsInfo,
   EnrollmentInfo,
   Chart,
+  VeteranInfo,
 }
 
 const methods = {

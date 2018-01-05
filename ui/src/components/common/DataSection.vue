@@ -8,7 +8,7 @@
       </span>
     </h2>
 
-    <div v-show="show" class="is-size-6 contents">
+    <div v-show="show || forceShow" class="is-size-6 contents">
       <slot />
     </div>
 
@@ -20,6 +20,7 @@
 export default {
   props: {
     title: {},
+    forceShow: { default: false },
   },
 
   data() {
