@@ -17,14 +17,14 @@ task :restart_puma do
 end
 after 'deploy:publishing', :restart_puma
 
-# desc "Deploy UI"
-# task :deploy_ui do
-#   run_locally do
-#     execute :sh, '-c \'cd ./ui && npm run build\''
-#     execute :scp, '-r ui/dist/* puma-worker@aov01.athletesofvalor.com:/var/www/ipeds-ui'
-#   end
-# end
-# before :restart_puma, :deploy_ui
+desc "Deploy UI"
+task :deploy_ui do
+  run_locally do
+    execute :sh, '-c \'cd ./ui && npm run build\''
+    execute :scp, '-r ui/dist/* puma-worker@aov01.athletesofvalor.com:/var/www/ipeds-ui'
+  end
+end
+before :restart_puma, :deploy_ui
 
 
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
