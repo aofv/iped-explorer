@@ -83,4 +83,4 @@ production:
   host: <%= ENV['IPEDS_DB_HOST'] %>
   database: 'ipeds_production'
   username: <%= ENV['IPEDS_DB_USER'] %>
-  password: <%= ENV['IPEDS_DB_PASSWORD='] %>
+  password: <%= ENV['IPEDS_DB_PASSWORD'] %>

@@ -1,14 +1,13 @@
-# Specifies the `port` that Puma will listen on to receive requests; default is 3000.
-#
-port        ENV.fetch("PORT") { 3000 }
-
 # Specifies the `environment` that Puma will run in.
 #
-rails_env = environment ENV.fetch("IPEDS_RAILS_ENV") { "development" }
+rails_env = ENV.fetch("IPEDS_RAILS_ENV") { "development" }
 environment rails_env
 
 workers 1
 threads 1,6
+
+app_dir = File.expand_path("../..", __FILE__)
+shared_dir = "#{app_dir}/shared"
 
 bind "unix://#{shared_dir}/sockets/puma.sock"
 
