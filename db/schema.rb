@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180103172956) do
+ActiveRecord::Schema.define(version: 20180105211203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -162,12 +162,12 @@ ActiveRecord::Schema.define(version: 20180103172956) do
   create_table "veterans", force: :cascade do |t|
     t.integer "year"
     t.bigint "school_id"
-    t.integer "total_undergarduate_students"
+    t.integer "total_undergraduate_students"
     t.integer "total_undergraduate_benefits"
     t.integer "average_undergraduate_benefits"
     t.integer "total_graduate_students"
-    t.integer "total_graduate_benifits"
-    t.integer "average_graduate_benifits"
+    t.integer "total_graduate_benefits"
+    t.integer "average_graduate_benefits"
     t.integer "total_students"
     t.integer "total_benefits"
     t.integer "average_benefits"

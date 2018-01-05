@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     resources :admissions, only: [:index]
     resources :sport_teams, only: [:index]
     resources :enrollments, only: [:index]
+    resources :veterans, only: [:index]
   end
 end
