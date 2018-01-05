@@ -7,11 +7,8 @@
 
     <div v-if="school">
       <general-info :school="school" />
-      <hr />
       <enrollment-info :school="school" />
-      <hr />
       <finance-info :school="school" />
-      <hr />
       <admissions-info :school="school" />
     </div>
 

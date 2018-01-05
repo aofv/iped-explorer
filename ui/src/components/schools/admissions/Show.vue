@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <h2 class="title is-4" @click="show = !show">Admissions</h2>
-
-    <div class="columns" v-if="admissions" v-show="show">
+  <data-section title="Admissions" v-if="admissions">
+    <div class="columns">
       <div class="column is-one-third">
         <data-listing
           label="Admissions"
@@ -53,16 +51,17 @@
         />
       </div>
     </div>
-
-  </div>
+  </data-section>
 </template>
 
 <script>
 import ApiClient from '@/utils/ApiClient'
 import DataListing from '@/components/common/DataListing'
+import DataSection from '@/components/common/DataSection'
 
 const components = {
   DataListing,
+  DataSection,
 }
 
 const methods = {

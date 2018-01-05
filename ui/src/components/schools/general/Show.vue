@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <h2 class="title is-4" @click="show = !show">Basic</h2>
-    <div class="columns" v-show="show">
+  <data-section title="Basic" v-if="school">
+    <div class="columns">
       <div class="column is-one-third">
         <data-listing label="Region" :data="school.region_name" />
         <data-listing label="Address" :data="school.address.street" />
@@ -20,14 +19,16 @@
       </div>
 
     </div>
-  </div>
+  </data-section>
 </template>
 
 <script>
 import DataListing from '@/components/common/DataListing'
+import DataSection from '@/components/common/DataSection'
 
 const components = {
   DataListing,
+  DataSection,
 }
 
 export default {

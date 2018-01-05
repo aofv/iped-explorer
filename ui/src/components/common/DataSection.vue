@@ -1,0 +1,46 @@
+<template>
+  <div>
+    <h2 class="title is-5" @click="show = !show">
+      {{ title }}
+      <span class="is-size-6 has-text-grey">
+        <i class="fa fa-chevron-up" v-if="show"></i>
+        <i class="fa fa-chevron-down" v-if="!show"></i>
+      </span>
+    </h2>
+
+    <div v-show="show" class="is-size-6 contents">
+      <slot />
+    </div>
+
+    <hr />
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    title: {},
+  },
+
+  data() {
+    return {
+      show: false,
+    }
+  }
+}
+</script>
+
+<style scoped lang="scss">
+  .title {
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+
+  hr {
+    margin: 15px 0;
+  }
+
+  .contents {
+    margin: 20px 0;
+  }
+</style>

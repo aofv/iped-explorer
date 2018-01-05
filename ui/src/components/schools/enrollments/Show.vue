@@ -1,48 +1,47 @@
 <template>
-  <div>
-    <h2 class="title is-4" @click="show = !show">Enrollments</h2>
-
-    <div class="columns" v-if="enrollments" v-show="show">
+  <data-section title="Enrollments" v-if="enrollments">
+    <div class="columns">
       <!-- START col 1 -->
       <div class="column is-one-third">
         <data-listing
-          label="Total Enrolled"
-          :data="currentRecord.total"
-          type="number"
-          :series="enrollments.map( (obj) => { return {year: obj.year, value: obj.total} } )"
-          :chartable="true"
+        label="Total Enrolled"
+        :data="currentRecord.total"
+        type="number"
+        :series="enrollments.map( (obj) => { return {year: obj.year, value: obj.total} } )"
+        :chartable="true"
         />
         <data-listing
-          label="Total Male"
-          :data="currentRecord.male"
-          type="number"
-          :series="enrollments.map( (obj) => { return {year: obj.year, value: obj.male} } )"
-          :chartable="true"
-          :aside="percentMale"
+        label="Total Male"
+        :data="currentRecord.male"
+        type="number"
+        :series="enrollments.map( (obj) => { return {year: obj.year, value: obj.male} } )"
+        :chartable="true"
+        :aside="percentMale"
         />
         <data-listing
-          label="Total Female"
-          :data="currentRecord.female"
-          type="number"
-          :series="enrollments.map( (obj) => { return {year: obj.year, value: obj.female} } )"
-          :chartable="true"
-          :aside="percentFemale"
+        label="Total Female"
+        :data="currentRecord.female"
+        type="number"
+        :series="enrollments.map( (obj) => { return {year: obj.year, value: obj.female} } )"
+        :chartable="true"
+        :aside="percentFemale"
         />
 
       </div>
       <!-- END col 1 -->
-
     </div>
-  </div>
+  </data-section>
 </template>
 
 <script>
 import ApiClient from '@/utils/ApiClient'
 import DataListing from '@/components/common/DataListing'
 import { mapGetters } from 'vuex'
+import DataSection from '@/components/common/DataSection'
 
 const components = {
-  DataListing
+  DataListing,
+  DataSection,
 }
 
 const methods = {
