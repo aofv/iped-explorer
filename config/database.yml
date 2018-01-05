@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: iped-explorer_production
-  username: iped-explorer
-  password: <%= ENV['IPED-EXPLORER_DATABASE_PASSWORD'] %>
+  host: <%= ENV['IPEDS_DB_HOST'] %>
+  database: 'ipeds_production'
+  username: <%= ENV['IPEDS_DB_USER'] %>
+  password: <%= ENV['IPEDS_DB_PASSWORD='] %>
