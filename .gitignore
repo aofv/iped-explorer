@@ -15,3 +15,6 @@
 /test
 
 .byebug_history
+
+/shared/pids/puma.pid
+/shared/pids/puma.state
