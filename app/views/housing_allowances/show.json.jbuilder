@@ -1,0 +1,22 @@
+json.data do
+  json.id @allowance.id
+  json.zip @allowance.zip
+  json.e01_no_deps @allowance.e01_no_deps
+  json.e01_with_deps @allowance.e01_with_deps
+  json.e02_no_deps @allowance.e02_no_deps
+  json.e02_with_deps @allowance.e02_with_deps
+  json.e03_no_deps @allowance.e03_no_deps
+  json.e03_with_deps @allowance.e03_with_deps
+  json.e04_no_deps @allowance.e04_no_deps
+  json.e04_with_deps @allowance.e04_with_deps
+  json.e05_no_deps @allowance.e05_no_deps
+  json.e05_with_deps @allowance.e05_with_deps
+  json.e06_no_deps @allowance.e06_no_deps
+  json.e06_with_deps @allowance.e06_with_deps
+  json.e07_no_deps @allowance.e07_no_deps
+  json.e07_with_deps @allowance.e07_with_deps
+  json.e08_no_deps @allowance.e08_no_deps
+  json.e08_with_deps @allowance.e08_with_deps
+  json.e09_no_deps @allowance.e09_no_deps
+  json.e09_with_deps @allowance.e09_with_deps
+end
