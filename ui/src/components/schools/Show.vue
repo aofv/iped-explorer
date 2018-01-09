@@ -45,7 +45,8 @@ const components = {
 
 const methods = {
   getSchool() {
-    const url = `/schools/${this.$route.params.school_id}`
+    const url = `/schools/${this.schoolId}`
+    console.log(url)
     ApiClient.get(url)
       .then(response => {
         this.school = response.data.data
@@ -56,15 +57,22 @@ const methods = {
 
 export default {
   mounted() {
+    this.schoolId = this.$route.params.school_id
     this.getSchool()
   },
 
   data() {
     return {
+      schoolId: null,
       school: null,
       loading: true,
       chartSets: [],
     }
+  },
+
+  beforeRouteUpdate(to) {
+    this.schoolId = to.params.school_id
+    this.getSchool()
   },
 
   methods: methods,
