@@ -10,7 +10,8 @@ namespace :iped do
     # Import::AdmissionsImporter.new.import
     # Import::EnrollmentImporter.new.import
     # Import::VeteranImporter.new.import
-    Import::CostImporter.new.import
+    # Import::CostImporter.new.import
+    Import::BahImporter.new.import
   end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180109144009) do
+ActiveRecord::Schema.define(version: 20180109161657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,30 @@ ActiveRecord::Schema.define(version: 20180109144009) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["school_id"], name: "index_admissions_on_school_id"
+  end
+
+  create_table "basic_housing_allowances", force: :cascade do |t|
+    t.string "zip"
+    t.integer "e01_no_deps"
+    t.integer "e01_with_deps"
+    t.integer "e02_no_deps"
+    t.integer "e02_with_deps"
+    t.integer "e03_no_deps"
+    t.integer "e03_with_deps"
+    t.integer "e04_no_deps"
+    t.integer "e04_with_deps"
+    t.integer "e05_no_deps"
+    t.integer "e05_with_deps"
+    t.integer "e06_no_deps"
+    t.integer "e06_with_deps"
+    t.integer "e07_no_deps"
+    t.integer "e07_with_deps"
+    t.integer "e08_no_deps"
+    t.integer "e08_with_deps"
+    t.integer "e09_no_deps"
+    t.integer "e09_with_deps"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "costs", force: :cascade do |t|
