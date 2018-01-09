@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :sport_teams, only: [:index]
     resources :enrollments, only: [:index]
     resources :veterans, only: [:index]
+    resources :costs, only: [:index]
   end
 end
