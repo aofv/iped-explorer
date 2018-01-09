@@ -7,11 +7,16 @@ class School < ApplicationRecord
   has_many :veterans
   has_many :enrollments
   has_many :costs
+  has_one :housing_allowance
 
   scope :grants_degrees, -> { where(grants_degrees: true) }
 
   validates :uid,
     uniqueness: true
+
+  def zip_first_five
+    self.zip.length > 5 ? self.zip[0..4] : self.zip
+  end
 
   def region_name
     case region

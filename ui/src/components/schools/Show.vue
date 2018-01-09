@@ -9,6 +9,7 @@
       <cost-info :school="school" />
       <enrollment-info :school="school" />
       <veteran-info :school="school" />
+      <va-info :school="school" />
       <finance-info :school="school" />
       <admissions-info :school="school" />
     </div>
@@ -29,6 +30,7 @@ import EnrollmentInfo from './enrollments/Show'
 import Chart from '@/components/common/Chart'
 import VeteranInfo from './veterans/Show'
 import CostInfo from './costs/Show'
+import VaInfo from './va/Show'
 
 const components = {
   GeneralInfo,
@@ -38,6 +40,7 @@ const components = {
   Chart,
   VeteranInfo,
   CostInfo,
+  VaInfo,
 }
 
 const methods = {
