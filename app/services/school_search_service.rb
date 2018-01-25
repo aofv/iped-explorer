@@ -1,7 +1,7 @@
 class SchoolSearchService
 
   def search(params, records_per_page, page_number)
-    records_per_page = 50 if records_per_page > 50
+    records_per_page = 50 if records_per_page.to_i > 50
 
     # only includes degree granting schools for now
     schools = School.grants_degrees
@@ -42,11 +42,11 @@ class SchoolSearchService
 
     # Used for internal searches we want to hide NCAA D1 schools
     if params[:exclude_d1]
-      non_d1 = SportTeam.most_recent
+      d1 = SportTeam.most_recent
         .select(:school_id).distinct
-        .where.not("(sport_teams.division = 'Division 1' AND sport_teams.affiliation = 'NCAA')")
+        .where("(sport_teams.division = 'Division I' AND sport_teams.affiliation = 'NCAA')")
 
-      schools = schools.where.not(id: non_d1)
+      schools = schools.where.not(id: d1)
     end
 
     if params[:affiliation]
