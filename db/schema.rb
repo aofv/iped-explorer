@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180109161657) do
+ActiveRecord::Schema.define(version: 20180125183611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -214,5 +214,31 @@ ActiveRecord::Schema.define(version: 20180109161657) do
     t.datetime "updated_at", null: false
     t.index ["school_id"], name: "index_veterans_on_school_id"
   end
+
+
+  create_view "school_snapshots", materialized: true,  sql_definition: <<-SQL
+      SELECT s.id AS school_id,
+      s.uid,
+      s.name,
+      round((((a.admissions)::double precision / (a.applications)::double precision) * (100)::double precision)) AS admissions_rate,
+      bha.e05_with_deps AS bha,
+      (c.average_in_state_tuition + c.in_state_fees) AS in_state_cost,
+      (c.average_out_of_state_tuition + c.out_of_stats_fees) AS out_of_state_cost,
+      c.on_campus_room_and_board,
+      c.off_campus_room_and_board,
+      c.books_and_supplies,
+      e.total AS total_undergrads
+     FROM ((((schools s
+       LEFT JOIN admissions a ON (((s.id = a.school_id) AND (a.year = ( SELECT max(admissions.year) AS max
+             FROM admissions
+            WHERE (admissions.school_id = s.id))) AND (a.applications > 0) AND (a.admissions > 0))))
+       LEFT JOIN basic_housing_allowances bha ON (((bha.zip)::text = "substring"((s.zip)::text, 1, 5))))
+       LEFT JOIN costs c ON (((c.school_id = s.id) AND (c.year = ( SELECT max(costs.year) AS max
+             FROM costs
+            WHERE (costs.school_id = s.id))))))
+       LEFT JOIN enrollments e ON (((e.school_id = s.id) AND (e.year = ( SELECT max(enrollments.year) AS max
+             FROM enrollments
+            WHERE (enrollments.school_id = s.id))) AND (e.level_of_student = 1))));
+  SQL
 
 end

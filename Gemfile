@@ -13,6 +13,7 @@ gem 'rack-cors'
 gem 'kaminari'
 gem 'foreman'
 gem 'newrelic_rpm'
+gem 'scenic'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

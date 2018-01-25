@@ -8,6 +8,7 @@ class School < ApplicationRecord
   has_many :enrollments
   has_many :costs
   has_one :housing_allowance
+  has_one :school_snapshot
 
   scope :grants_degrees, -> { where(grants_degrees: true) }
 
