@@ -6,6 +6,8 @@ class SchoolSearchService
     # only includes degree granting schools for now
     schools = School.grants_degrees
 
+    schools = schools.includes(:school_snapshot)
+
     if params[:name]
       schools = schools.where("name ILIKE ?", "%#{params[:name]}%")
     end
@@ -55,9 +57,9 @@ class SchoolSearchService
     end
 
     # Used for interna searches we want to hide NCAA D1 schools
-    if params[:exclude_d1]
-      schools =
-    end
+    # if params[:exclude_d1]
+    #   schools =
+    # end
 
     return schools.page(page_number).per(records_per_page)
   end
