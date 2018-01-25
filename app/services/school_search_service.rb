@@ -40,6 +40,15 @@ class SchoolSearchService
       schools = schools.where(id: school_ids)
     end
 
+    # Used for internal searches we want to hide NCAA D1 schools
+    if params[:exclude_d1]
+      non_d1 = SportTeam.most_recent
+        .select(:school_id).distinct
+        .where.not("(sport_teams.division = 'Division 1' AND sport_teams.affiliation = 'NCAA')")
+
+      schools = schools.where.not(id: non_d1)
+    end
+
     if params[:affiliation]
       school_ids = SportTeam.most_recent
         .select(:school_id).distinct
@@ -55,11 +64,6 @@ class SchoolSearchService
 
       schools = schools.where(id: school_ids)
     end
-
-    # Used for interna searches we want to hide NCAA D1 schools
-    # if params[:exclude_d1]
-    #   schools =
-    # end
 
     return schools.page(page_number).per(records_per_page)
   end
