@@ -1,6 +1,6 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins /\A(http|https):\/\/(.*).athletesofvalor[.]com\z/, /\Alocalhost:(.*)\z/
+    origins /\A(http|https):\/\/(.*).athletesofvalor[.]com\z/, /\A(http):\/\/localhost:(.*)\z/
 
     resource '*',
       headers: :any,
