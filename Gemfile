@@ -10,9 +10,9 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'jbuilder', '~> 2.5'
 gem 'rack-cors'
-
 gem 'kaminari'
 gem 'foreman'
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
