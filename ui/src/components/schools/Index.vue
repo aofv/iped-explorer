@@ -1,6 +1,8 @@
 <template>
   <div>
-    <search-criteria v-model="searchString" @input="getSchools" />
+    <keep-alive>
+      <search-criteria v-model="searchString" @input="getSchools" />
+    </keep-alive>
 
     <p v-if="schools">
       Showing {{ recordSetStart }} - {{ recordSetEnd }}

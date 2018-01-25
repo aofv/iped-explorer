@@ -101,6 +101,12 @@
       </div>
 
     </div>
+
+    <!-- Admissions -->
+    <div class="columns" v-if="showAdmissions">
+
+    </div>
+
   </div>
 </template>
 
@@ -181,6 +187,7 @@ export default {
       },
       showBasic: false,
       showSport: false,
+      showAdmissions: true,
     }
   },
 

@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const TOGGLE_CHART_FIELD = 'TOGGLE_CHART_FIELD'
-const REMOVE_CHART_FIELD = 'REMOVE_CHART_FIELD'
+const UPDATE_SEARCH_PARAMS = 'UPDATE_SEARCH_PARAMS'
 
 const state = {
   chartFields: [],
