@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     resources :degree_programs, only: [:index]
     resource :housing_allowance, only: [:show]
   end
+
+  resources :degree_programs, only: [:show]
 end

@@ -7,4 +7,9 @@ class DegreeProgramsController < ApplicationController
       .includes(:degree_program)
   end
 
+  # GET /degree_programs/:id
+  def show
+    @program = DegreeProgram.find(params[:id])
+  end
+
 end
