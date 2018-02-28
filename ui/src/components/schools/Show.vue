@@ -4,15 +4,13 @@
       {{ school.name }}
     </h1>
 
-    <div v-if="school">
-      <general-info :school="school" />
-      <cost-info :school="school" />
-      <enrollment-info :school="school" />
-      <veteran-info :school="school" />
-      <va-info :school="school" />
-      <finance-info :school="school" />
-      <admissions-info :school="school" />
-    </div>
+    <general-info :school="school" v-if="school" />
+    <cost-info :school="school" v-if="school" />
+    <enrollment-info :school="school" v-if="school" />
+    <veteran-info :school="school" v-if="school" />
+    <va-info :school="school" v-if="school" />
+    <finance-info :school="school" v-if="school" />
+    <admissions-info :school="school" v-if="school" />
 
     <div class="chart">
       <chart />
@@ -70,9 +68,11 @@ export default {
     }
   },
 
-  beforeRouteUpdate(to) {
+  beforeRouteUpdate(to, from, next) {
     this.schoolId = to.params.school_id
+    this.school = null
     this.getSchool()
+    next()
   },
 
   methods: methods,
