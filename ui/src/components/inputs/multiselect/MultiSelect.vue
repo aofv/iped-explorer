@@ -59,9 +59,9 @@ const methods = {
 const computed = {
   filteredItems() {
     if(this.filterTerm) {
-      var pattern = new RegExp(this.filterTerm)
+      var pattern = new RegExp(this.filterTerm, 'gi')
       return this.options.filter( (i) => {
-        return pattern.test(i[0])
+        return pattern.test(i[1])
       } )
     }
     return this.options

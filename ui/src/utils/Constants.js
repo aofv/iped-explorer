@@ -83,7 +83,6 @@ const cipFamilies = [
   [1, "Agriculture"],
   [12, "Culinary"],
   [10, "Communications Technologies/Technicians"],
-  [3, "Natural Resources And Conservation"],
   [4, "Architecture And Related Services"],
   [5, "Area, Ethnic, Cultural, Gender"],
   [9, "Communication, Journalism"],
