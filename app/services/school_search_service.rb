@@ -66,7 +66,7 @@ class SchoolSearchService
     end
 
     if params[:cip_family]
-      cip_family = params[:cip_family]
+      cip_family = params[:cip_family].split(',')
 
       school_ids = DegreeProgramMapping.joins(:degree_program)
         .select(:school_id).distinct
@@ -77,7 +77,7 @@ class SchoolSearchService
 
     if params[:cip]
       schools = School.joins(:degree_programs)
-        .where(degree_programs: { cip_code: params[:cip] })
+        .where(degree_programs: { cip_code: params[:cip].split(',') })
     end
 
     return schools.page(page_number).per(records_per_page)

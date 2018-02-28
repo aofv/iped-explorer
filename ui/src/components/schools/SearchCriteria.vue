@@ -117,9 +117,17 @@
 
     </div>
 
-    <!-- Admissions -->
-    <div class="columns" v-if="showAdmissions">
-
+    <!-- Degree Programs -->
+    <div class="columns" v-if="showDegreePrograms">
+      <!-- CIP family -->
+      <div class="column is-narrow">
+        <multi-select
+          v-model="searchCriteria.cipFamily"
+          :options="cipFamilyOptions"
+          label="Degree Program Category"
+          @input="updateCriteria"
+        />
+      </div>
     </div>
 
   </div>
@@ -133,6 +141,7 @@ import { states } from '@/utils/Constants'
 import { sports } from '@/utils/Constants'
 import { affiliations } from '@/utils/Constants'
 import { divisions } from '@/utils/Constants'
+import { cipFamilies } from '@/utils/Constants'
 import DropDown from '@/components/inputs/DropDown'
 import MultiSelect from '@/components/inputs/multiselect/MultiSelect'
 
@@ -149,6 +158,7 @@ const computed = {
   sportOptions() { return sports },
   affiliationOptions() { return affiliations },
   divisionOptions() { return divisions },
+  cipFamilyOptions() { return cipFamilies },
 }
 
 const methods = {
@@ -183,6 +193,10 @@ const methods = {
       queryVals.push(`division=${this.searchCriteria.division}`)
     }
 
+    if(this.searchCriteria.cipFamily.length > 0) {
+      queryVals.push(`cip_family=${this.searchCriteria.cipFamily}`)
+    }
+
     this.$emit('input', queryVals.join('&'))
   }
 }
@@ -199,11 +213,12 @@ export default {
         sports: [],
         affiliation: [],
         division: [],
+        cipFamily: [],
       },
       showBasic: false,
       showSport: false,
       showAdmissions: true,
-      showDegreePrograms: false,
+      showDegreePrograms: true,
     }
   },
 
