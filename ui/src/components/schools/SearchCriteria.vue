@@ -7,7 +7,8 @@
           <span class="icon is-small">
             <i class="fa fa-info"></i>
           </span>
-          <span>Basic</span>
+          <span v-if="showBasic">Hide Basic Criteria</span>
+          <span v-if="!showBasic">Show Basic Criteria</span>
         </button>
       </div>
 
@@ -17,10 +18,24 @@
           <span class="icon is-small">
             <i class="fa fa-futbol-o"></i>
           </span>
-          <span>Sports</span>
+          <span v-if="showSport">Hide Sports Criteria</span>
+          <span v-if="!showSport">Show Sports Criteria</span>
         </button>
       </div>
+
+      <!-- show degree programs button -->
+      <div class="column is-narrow">
+        <button class="button is-white" @click="showDegreePrograms = !showDegreePrograms" :class="{'is-active': showDegreePrograms}">
+          <span class="icon is-small">
+            <i class="fa fa-graduation-cap"></i>
+          </span>
+          <span v-if="showDegreePrograms">Hide Degree Program Criteria</span>
+          <span v-if="!showDegreePrograms">Show Degree Program Criteria</span>
+        </button>
+      </div>
+
     </div>
+    <!-- END show/hide buttons -->
 
     <!-- Basic -->
     <div class="columns" v-if="this.showBasic">
@@ -188,6 +203,7 @@ export default {
       showBasic: false,
       showSport: false,
       showAdmissions: true,
+      showDegreePrograms: false,
     }
   },
 
