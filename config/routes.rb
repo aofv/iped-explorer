@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :enrollments, only: [:index]
     resources :veterans, only: [:index]
     resources :costs, only: [:index]
+    resources :degree_programs, only: [:index]
     resource :housing_allowance, only: [:show]
   end
 end
