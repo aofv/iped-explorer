@@ -11,6 +11,9 @@ const routes = [
   { path: '/schools/:school_id', name: 'school', component: School, children:
     []
   },
+
+  // Catch all
+  { path: '*',  redirect: '/schools' },
 ]
 
 export default new Router({
