@@ -1,6 +1,6 @@
 <template>
-  <data-section title="Cost" v-if="costs">
-    <div class="columns">
+  <data-section title="Cost" @showToggle="onToggle">
+    <div class="columns" v-if="costs">
 
       <!-- START col 1 -->
       <div class="column is-one-third">
@@ -100,6 +100,12 @@ const methods = {
         this.loading = false
       })
   },
+
+  onToggle(showing) {
+    if(showing && !this.costs) {
+      this.getData()
+    }
+  }
 }
 
 const computed = {
@@ -129,10 +135,6 @@ const computed = {
 }
 
 export default {
-  mounted() {
-    this.getData()
-  },
-
   props: {
     school: {},
   },

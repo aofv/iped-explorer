@@ -1,5 +1,5 @@
 <template>
-  <data-section title="Degree Programs">
+  <data-section title="Degree Programs" @showToggle="onToggle">
     <div class="columns">
       <div class="column content">
         <ul>
@@ -27,6 +27,12 @@ const methods = {
       .then(response => {
         this.degreePrograms = response.data.data
       })
+  },
+
+  onToggle(showing) {
+    if(showing && !this.degreePrograms) {
+      this.getData()
+    }
   }
 }
 
@@ -35,10 +41,6 @@ const computed = {
 }
 
 export default {
-  mounted() {
-    this.getData()
-  },
-
   props: {
     school: {},
   },

@@ -1,6 +1,6 @@
 <template>
-  <data-section title="Admissions" v-if="admissions">
-    <div class="columns">
+  <data-section title="Admissions" @showToggle="onToggle">
+    <div class="columns" v-if="admissions">
       <div class="column is-one-third">
         <data-listing
           label="Admissions"
@@ -75,6 +75,12 @@ const methods = {
         this.loading = false
       })
   },
+
+  onToggle(showing) {
+    if(showing && !this.admissions) {
+      this.getData()
+    }
+  },
 }
 
 const computed = {
@@ -112,10 +118,6 @@ const computed = {
 }
 
 export default {
-  mounted() {
-    this.getData()
-  },
-
   props: {
     school: {},
   },

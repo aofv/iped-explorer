@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="title is-5" @click="show = !show">
+    <h2 class="title is-5" @click="onClick">
       {{ title }}
       <span class="is-size-6 has-text-grey">
         <i class="fa fa-chevron-up" v-if="show"></i>
@@ -17,6 +17,14 @@
 </template>
 
 <script>
+
+const methods = {
+  onClick() {
+    this.show = !this.show
+    this.$emit('showToggle', this.show)
+  },
+}
+
 export default {
   props: {
     title: {},
@@ -27,7 +35,9 @@ export default {
     return {
       show: false,
     }
-  }
+  },
+
+  methods,
 }
 </script>
 

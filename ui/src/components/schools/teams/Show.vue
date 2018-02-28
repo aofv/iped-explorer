@@ -1,5 +1,5 @@
 <template>
-  <data-section title="Sports Teams">
+  <data-section title="Sports Teams" @showToggle="onToggle">
     <div class="columns">
       <div class="column">
         <table class="table is-hoverable is-fullwidth">
@@ -45,7 +45,13 @@ const methods = {
       .then(response => {
         this.teams = response.data.data
       })
-  }
+  },
+
+  onToggle(displayed) {
+    if(displayed && !this.teams) {
+      this.getData()
+    }
+  },
 }
 
 const computed = {
@@ -53,10 +59,6 @@ const computed = {
 }
 
 export default {
-  mounted() {
-    this.getData()
-  },
-
   props: {
     school: {},
   },

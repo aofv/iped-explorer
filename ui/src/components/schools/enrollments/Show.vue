@@ -1,6 +1,6 @@
 <template>
-  <data-section title="Enrollments" v-if="enrollments">
-    <div class="columns">
+  <data-section title="Enrollments" @showToggle="onToggle">
+    <div class="columns" v-if="enrollments">
       <!-- START col 1 -->
       <div class="column is-one-third">
         <data-listing
@@ -54,6 +54,12 @@ const methods = {
         this.enrollments = response.data.data
         this.loading = false
       })
+  },
+
+  onToggle(showing) {
+    if(showing && !this.enrollments) {
+      this.getData()
+    }
   }
 }
 
@@ -81,10 +87,6 @@ const computed = {
 }
 
 export default {
-  mounted() {
-    this.getData()
-  },
-
   props: {
     school: {},
   },

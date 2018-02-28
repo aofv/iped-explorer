@@ -1,8 +1,8 @@
 <template>
-  <data-section title="Finances" v-if="finances">
+  <data-section title="Finances" @showToggle="onToggle">
 
-    <div class="columns">
-      <div class="column">
+    <div class="columns" v-if="finances">
+      <div class="column" >
         <data-listing
         label="Total Revenue"
         :data="mostRecentRecord.total_revenue"
@@ -105,6 +105,12 @@ const computed = {
 }
 
 const methods = {
+  onToggle(showing) {
+    if(showing && !this.finances) {
+      this.getFinances()
+    }
+  },
+
   formatCurrency(value) {
     if(value) {
       return value.toLocaleString('en-US', {
@@ -129,10 +135,6 @@ const methods = {
 }
 
 export default {
-  mounted() {
-    this.getFinances()
-  },
-
   props: {
     school: {},
   },

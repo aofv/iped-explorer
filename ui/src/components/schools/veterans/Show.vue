@@ -1,6 +1,6 @@
 <template>
-  <data-section title="Veterans" v-if="veterans">
-    <div class="columns">
+  <data-section title="Veterans" @showToggle="onToggle">
+    <div class="columns" v-if="veterans">
 
       <!-- START col 1 -->
       <div class="column">
@@ -106,6 +106,12 @@ const methods = {
         this.loading = false
       })
   },
+
+  onToggle(showing) {
+    if(showing && !this.veterans) {
+      this.getData()
+    }
+  }
 }
 
 const computed = {
@@ -118,10 +124,6 @@ const computed = {
 }
 
 export default {
-  mounted() {
-    this.getData()
-  },
-
   props: {
     school: {},
   },
