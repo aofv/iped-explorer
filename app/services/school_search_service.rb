@@ -65,6 +65,21 @@ class SchoolSearchService
       schools = schools.where(id: school_ids)
     end
 
+    if params[:cip_family]
+      cip_family = params[:cip_family]
+
+      school_ids = DegreeProgramMapping.joins(:degree_program)
+        .select(:school_id).distinct
+        .where(degree_programs: { cip_family: cip_family })
+
+      schools = schools.where(id: school_ids)
+    end
+
+    if params[:cip]
+      schools = School.joins(:degree_programs)
+        .where(degree_programs: { cip_code: params[:cip] })
+    end
+
     return schools.page(page_number).per(records_per_page)
   end
 
