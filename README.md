@@ -1,24 +1,31 @@
-# README
+# IPEDS Exlorer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A live example if this application can be found [here](https://school-data.athletesofvalor.com)
 
-Things you may want to cover:
+This repo contains a set of 3 tools:
+* A series of import scripts which import a selection of NCES IPEDS Data into a postgres database
+* An API for serving this data
+* A static web app for consuming the API and reporting
 
-* Ruby version
+## Import Tools
+These tools can be run by executing a rake task:
+```
+rake iped:import
+```
+ It is possible to only import select data, see `./lib/tasks/iped.rake`.
 
-* System dependencies
+ ## API
+ To run the API:
+ ```
+ bundle
+ rake db:create
+ rake db:migrate
+ rails s
+ ```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ ## Web App
+ The webapp is located in `./ui` folder is written in Vue. To run it:
+ ```
+ npm install
+ npm run dev
+ ```
