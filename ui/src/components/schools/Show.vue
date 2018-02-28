@@ -6,6 +6,7 @@
 
     <general-info :school="school" v-if="school" />
     <cost-info :school="school" v-if="school" />
+    <degree-programs :school="school" v-if="school" />
     <enrollment-info :school="school" v-if="school" />
     <veteran-info :school="school" v-if="school" />
     <va-info :school="school" v-if="school" />
@@ -29,6 +30,7 @@ import Chart from '@/components/common/Chart'
 import VeteranInfo from './veterans/Show'
 import CostInfo from './costs/Show'
 import VaInfo from './va/Show'
+import DegreePrograms from './programs/Show'
 
 const components = {
   GeneralInfo,
@@ -39,12 +41,12 @@ const components = {
   VeteranInfo,
   CostInfo,
   VaInfo,
+  DegreePrograms,
 }
 
 const methods = {
   getSchool() {
     const url = `/schools/${this.schoolId}`
-    console.log(url)
     ApiClient.get(url)
       .then(response => {
         this.school = response.data.data

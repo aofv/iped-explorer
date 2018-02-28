@@ -29,7 +29,6 @@ const components = {
 const methods = {
   onSelectSchool(school) {
     this.$router.push({name: 'school', params: { school_id: school.id }})
-    console.log(school.id)
   },
 }
 
