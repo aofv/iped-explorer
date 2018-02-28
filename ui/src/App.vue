@@ -4,7 +4,7 @@
     <nav class="navbar is-dark ie-nav">
       <div class="navbar-brand">
         <p class="is-size-3">
-          IPEDS Explorer
+          School Data Explorer
         </p>
       </div>
 
