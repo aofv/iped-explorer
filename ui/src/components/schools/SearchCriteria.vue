@@ -217,7 +217,7 @@ export default {
       },
       showBasic: false,
       showSport: false,
-      showAdmissions: true,
+      showAdmissions: false,
       showDegreePrograms: true,
     }
   },

@@ -7,6 +7,7 @@
     <general-info :school="school" v-if="school" />
     <cost-info :school="school" v-if="school" />
     <degree-programs :school="school" v-if="school" />
+    <sport-teams :school="school" v-if="school" />
     <enrollment-info :school="school" v-if="school" />
     <veteran-info :school="school" v-if="school" />
     <va-info :school="school" v-if="school" />
@@ -31,6 +32,7 @@ import VeteranInfo from './veterans/Show'
 import CostInfo from './costs/Show'
 import VaInfo from './va/Show'
 import DegreePrograms from './programs/Show'
+import SportTeams from './teams/Show'
 
 const components = {
   GeneralInfo,
@@ -42,6 +44,7 @@ const components = {
   CostInfo,
   VaInfo,
   DegreePrograms,
+  SportTeams,
 }
 
 const methods = {
