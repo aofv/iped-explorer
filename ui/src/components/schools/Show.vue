@@ -1,8 +1,17 @@
 <template>
-  <div>
-    <h1 class="is-size-4" v-if="school">
-      {{ school.name }}
-    </h1>
+  <div v-if="school">
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+      <ul>
+        <li>
+          <router-link :to="{name: 'Schools'}">
+            Search
+          </router-link>
+        </li>
+        <li class="is-active">
+          <a href="#" aria-current="page">{{ school.name }}</a>
+        </li>
+      </ul>
+    </nav>
 
     <general-info :school="school" v-if="school" />
     <cost-info :school="school" v-if="school" />
