@@ -11,7 +11,8 @@ namespace :iped do
     # Import::EnrollmentImporter.new.import
     # Import::VeteranImporter.new.import
     # Import::CostImporter.new.import
-    Import::BahImporter.new.import
+    # Import::BahImporter.new.import
+    Import::DegreeProgramImporter.new.import
   end
 
 end
