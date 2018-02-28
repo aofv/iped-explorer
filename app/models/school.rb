@@ -9,11 +9,18 @@ class School < ApplicationRecord
   has_many :costs
   has_one :housing_allowance
   has_one :school_snapshot
+  has_many :degree_program_mappings
+  has_many :degree_programs,
+    through: :degree_program_mappings
 
   scope :grants_degrees, -> { where(grants_degrees: true) }
 
   validates :uid,
     uniqueness: true
+
+  def self.random
+    School.order('RANDOM()').first
+  end
 
   def zip_first_five
     self.zip.length > 5 ? self.zip[0..4] : self.zip

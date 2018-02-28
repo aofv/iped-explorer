@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180228163416) do
+ActiveRecord::Schema.define(version: 20180228170033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,20 @@ ActiveRecord::Schema.define(version: 20180228163416) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["school_id"], name: "index_costs_on_school_id"
+  end
+
+  create_table "degree_program_mappings", force: :cascade do |t|
+    t.bigint "school_id"
+    t.bigint "degree_program_id"
+    t.boolean "bachelor"
+    t.boolean "associate"
+    t.boolean "master"
+    t.boolean "doctorate"
+    t.boolean "distance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["degree_program_id"], name: "index_degree_program_mappings_on_degree_program_id"
+    t.index ["school_id"], name: "index_degree_program_mappings_on_school_id"
   end
 
   create_table "degree_programs", force: :cascade do |t|
@@ -225,6 +239,8 @@ ActiveRecord::Schema.define(version: 20180228163416) do
     t.index ["school_id"], name: "index_veterans_on_school_id"
   end
 
+  add_foreign_key "degree_program_mappings", "degree_programs"
+  add_foreign_key "degree_program_mappings", "schools"
 
   create_view "school_snapshots", materialized: true,  sql_definition: <<-SQL
       SELECT s.id AS school_id,
