@@ -1,7 +1,29 @@
 <template>
-  <li v-if="show">
-    {{ program.title }}
-  </li>
+  <tr v-if="show">
+    <td>
+      {{ program.title }}
+    </td>
+    <td>
+      <span class="tag is-success" v-if="program.associate">
+        Yes
+      </span>
+    </td>
+    <td>
+      <span class="tag is-success" v-if="program.bachelor">
+        Yes
+      </span>
+    </td>
+    <td>
+      <span class="tag is-success" v-if="program.master">
+        Yes
+      </span>
+    </td>
+    <td>
+      <span class="tag is-success" v-if="program.distance">
+        Yes
+      </span>
+    </td>
+  </tr>
 </template>
 
 <script>

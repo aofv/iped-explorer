@@ -3,14 +3,25 @@
     <div class="columns">
       <div class="column content">
         <input type="text" class="input" placeholder="Filter Degree Programs" @keyup="onFilter" ref="filter" />
-        <ul>
-          <degree-program-item
-            v-for="program in degreePrograms"
-            :key="program.id"
-            :program="program"
-            :filter="filter"
-          />
-        </ul>
+        <table class="table is-hoverable is-size-7">
+          <thead>
+            <tr>
+              <th>Program</th>
+              <th>Associates Degree</th>
+              <th>Bachelors Degree</th>
+              <th>Masters Degree</th>
+              <th>Online</th>
+            </tr>
+          </thead>
+          <tbody>
+            <degree-program-item
+              v-for="program in degreePrograms"
+              :key="program.id"
+              :program="program"
+              :filter="filter"
+            />
+          </tbody>
+        </table>
       </div>
     </div>
   </data-section>
