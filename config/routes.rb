@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     resource :housing_allowance, only: [:show]
   end
 
-  resources :degree_programs, only: [:show]
+  resources :degree_programs, only: [:show, :index]
 end
