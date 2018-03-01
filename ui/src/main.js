@@ -5,8 +5,16 @@ import App from './App'
 import router from './router'
 import bulma from 'bulma'
 import store from './store'
+import VueAnalytics from 'vue-analytics'
 
 Vue.config.productionTip = false
+
+if(process.env.NODE_ENV === 'production') {
+  Vue.use(VueAnalytics, {
+    id: 'UA-83852068-6',
+    router,
+  })
+}
 
 /* eslint-disable no-new */
 new Vue({
